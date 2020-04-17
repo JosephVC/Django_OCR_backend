@@ -8,6 +8,8 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.8"
 django = "^3.0.5"
+pytest = "^5.4.1"
+pytest-django = "^3.9.0"
 
 [tool.poetry.dev-dependencies]
 
