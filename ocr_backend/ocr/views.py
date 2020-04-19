@@ -1,22 +1,13 @@
 from rest_framework import generics
 
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from .forms import UploadFileForm
+from .models import OCRFile
+from .serializers import OcrSerializer
 
-# Imaginary function for uploading a file
-from foo import handle_uploaded_file
-# this will likely be linked to the OCRMyPDF program
+class ListOcr(generics.ListCreateAPIView):
+    queryset = OCRFile.objects.all()
+    serializer_class = OcrSerializer
 
-# Create your views here.
-
-def upload_file(request):
-    if request.method == 'POST':
-        form = UploadedFileForm(request.POST, request.FILES)
-        if form.is_valid():
-            handle_uploaded_file(request.FILES['file'])
-            return HttpResponseRedirect('/success/url/')
-        else:
-            form = UploadFileForm()
-        
-        return render(request, 'upload.html', {'form':  form})
+class DetailOcr(generics.RetrieveUpdateDestroyAPIView):
+    queryset = OCRFile.objects.all()
+    serializer_class = OcrSerializer
+    
