@@ -1,12 +1,11 @@
 from rest_framework import serializers
 
-from .models import OCRFile
+from .models import File
 
 class OcrSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
-            'id',
-            'title',
+            'file',
             'description',
+            'timestamp',
         )
-        model = OCRFile
