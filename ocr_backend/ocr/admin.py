@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import OCRFile
+from .models import File
 
 # Register your models here.
-admin.site.register(OCRFile)
+admin.site.register(File)
