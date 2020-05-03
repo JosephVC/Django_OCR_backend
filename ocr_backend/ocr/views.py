@@ -1,13 +1,19 @@
-from rest_framework import generics
+from rest_framework.views import APIView
+from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.response import Response
+from rest_framework import status
 
-from .models import OCRFile
-from .serializers import OcrSerializer
+from .serializers import FileSerializer
 
-class ListOcr(generics.ListCreateAPIView):
-    queryset = OCRFile.objects.all()
-    serializer_class = OcrSerializer
+class FileView(APIView):
 
-class DetailOcr(generics.RetrieveUpdateDestroyAPIView):
-    queryset = OCRFile.objects.all()
-    serializer_class = OcrSerializer
-    
+  parser_classes = (MultiPartParser, FormParser)
+
+  def post(self, request, *args, **kwargs):
+
+    file_serializer = FileSerializer(data=request.data)
+    if file_serializer.is_valid():
+      file_serializer.save()
+      return Response(file_serializer.data, status=status.HTTP_201_CREATED)
+    else:
+      return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
