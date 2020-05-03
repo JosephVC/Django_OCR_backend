@@ -39,11 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
-    
-    # 'corsheaders',
-
+    'corsheaders',
     'ocr',
 ]
+
+# Allow CORS for all domains
+CORS_ORIGIN_ALLOW_ALL =  True
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -52,8 +53,8 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
-    # 'corsheaders.middleware.CorsMiddleware',
-    # 'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -63,9 +64,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = (
-    'localhost:3000/'
-)
+# NOTE: enabling the below along with the CORS app above
+#       will cause runserver to error
+# CORS_ORIGIN_WHITELIST = (
+#     'localhost:3000/'
+# )
 
 ROOT_URLCONF = 'ocr_backend.urls'
 
@@ -136,3 +139,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
