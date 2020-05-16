@@ -57,7 +57,6 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -66,7 +65,7 @@ MIDDLEWARE = [
 
 # NOTE: CORS was set to specify a whitelist, but this caused runserver to goof
 # changing CORS to ALLOW_ALL allows things to run
-# gotta dig into how CORS works . . . 
+# This enables all API requests from a different server to be allowed. 
 CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'ocr_backend.urls'

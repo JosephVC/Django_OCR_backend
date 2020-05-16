@@ -1,12 +1,12 @@
 from rest_framework import serializers
 
-from .models import File
+from .models import Post
 
 class FileSerializer(serializers.ModelSerializer):
     class Meta():
-        model = File
+        model = Post
         fields = (
-            'file',
-            'description',
-            'timestamp',
+            'title',
+            'content',
+            'image',
         )
