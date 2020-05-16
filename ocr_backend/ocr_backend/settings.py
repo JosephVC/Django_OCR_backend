@@ -64,11 +64,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# NOTE: enabling the below along with the CORS app above
-#       will cause runserver to error
-# CORS_ORIGIN_WHITELIST = (
-#     'localhost:3000/'
-# )
+# NOTE: CORS was set to specify a whitelist, but this caused runserver to goof
+# changing CORS to ALLOW_ALL allows things to run
+# gotta dig into how CORS works . . . 
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'ocr_backend.urls'
 
