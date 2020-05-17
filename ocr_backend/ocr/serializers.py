@@ -5,8 +5,4 @@ from .models import Post
 class FileSerializer(serializers.ModelSerializer):
     class Meta():
         model = Post
-        fields = (
-            'title',
-            'content',
-            'image',
-        )
+        fields = '__all__'
