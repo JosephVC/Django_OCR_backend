@@ -3,8 +3,8 @@ from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from rest_framework import status
-# import ocrmypdf
-import subprocess
+import ocrmypdf
+from subprocess import Popen, PIPE, STDOUT
 
 from .serializers import FileSerializer
 from .models import Post
@@ -18,8 +18,14 @@ class PostViews(APIView):
         return Response(serializer.data)
 
     def post(self, request, *args, **kwargs):
+        
         posts_serializer = FileSerializer(data=request.data)
         if posts_serializer.is_valid():
+            
+            process = Popen(['ocrmypdf', r"C:\Users\Joseph\Desktop\backpack-scan.pdf", 'output.pdf'])
+            print(process)
+            # output_file = process.stdout.read()
+          
             posts_serializer.save()
             return Response(posts_serializer.data, status=status.HTTP_201_CREATED)
         else:

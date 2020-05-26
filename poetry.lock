@@ -311,6 +311,17 @@ version = "2.4.7"
 
 [[package]]
 category = "main"
+description = "Python-tesseract is a python wrapper for Google's Tesseract-OCR"
+name = "pytesseract"
+optional = false
+python-versions = "*"
+version = "0.3.4"
+
+[package.dependencies]
+Pillow = "*"
+
+[[package]]
+category = "main"
 description = "pytest: simple powerful testing with Python"
 name = "pytest"
 optional = false
@@ -425,7 +436,7 @@ python-versions = "*"
 version = "1.12.1"
 
 [metadata]
-content-hash = "59215cbe2e7e980ec23e06691bc9828263a832230dd38fc186055d313aab7d7e"
+content-hash = "b73934b549593b4f330fd4870fc7a041f5a66aadd73faccd37da08bb34c0612c"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -673,6 +684,9 @@ pylint = [
 pyparsing = [
     {file = "pyparsing-2.4.7-py2.py3-none-any.whl", hash = "sha256:ef9d7589ef3c200abe66653d3f1ab1033c3c419ae9b9bdb1240a85b024efc88b"},
     {file = "pyparsing-2.4.7.tar.gz", hash = "sha256:c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"},
+]
+pytesseract = [
+    {file = "pytesseract-0.3.4.tar.gz", hash = "sha256:afd8a5cdf8ab5d35690efbe71cbf5f89419f668ea8dde7649149815d5c5a899a"},
 ]
 pytest = [
     {file = "pytest-5.4.1-py3-none-any.whl", hash = "sha256:0e5b30f5cb04e887b91b1ee519fa3d89049595f428c1db76e73bd7f17b09b172"},
