@@ -14,8 +14,12 @@ djangorestframework = "^3.11.0"
 django-cors-headers = "^3.2.1"
 OCRmyPDF = "^9.8.0"
 <<<<<<< HEAD
+<<<<<<< HEAD
 gunicorn = "^20.0.4"
 django-heroku = "^0.3.1"
+=======
+pytesseract = "^0.3.4"
+>>>>>>> ac76f37998a64d2808cb362970bf9b433a389e8b
 =======
 pytesseract = "^0.3.4"
 >>>>>>> ac76f37998a64d2808cb362970bf9b433a389e8b
