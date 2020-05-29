@@ -1,1 +1,2 @@
-web: gunicorn myproject.wsgi
+release: python manage.py migrate
+web: gunicorn ocr-app-backend.wsgi --log-file--
