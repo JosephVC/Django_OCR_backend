@@ -27,7 +27,7 @@ SECRET_KEY = 'yrzv9(1j^$4uo*9@f2*8j2+8u25eza613!8+ajyx2czmh)w00-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://ocr-app-backend.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['https://ocr-app-backend.herokuapp.com/file/upload', '127.0.0.1']
 
 
 # Application definition
