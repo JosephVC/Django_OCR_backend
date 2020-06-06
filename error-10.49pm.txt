@@ -1,0 +1,101 @@
+2020-06-06T05:26:27.410075+00:00 heroku[web.1]: Starting process with command `gunicorn django-ocr-backend:app --log-file -`
+2020-06-06T05:26:30.591908+00:00 app[web.1]: [2020-06-06 05:26:30 +0000] [4] [INFO] Starting gunicorn 20.0.4
+2020-06-06T05:26:30.592978+00:00 app[web.1]: [2020-06-06 05:26:30 +0000] [4] [INFO] Listening at: http://0.0.0.0:33952 (4)
+2020-06-06T05:26:30.593219+00:00 app[web.1]: [2020-06-06 05:26:30 +0000] [4] [INFO] Using worker: sync
+2020-06-06T05:26:30.599603+00:00 app[web.1]: [2020-06-06 05:26:30 +0000] [9] [INFO] Booting worker with pid: 9
+2020-06-06T05:26:30.602974+00:00 app[web.1]: Failed to find attribute 'app' in 'django-ocr-backend'.
+2020-06-06T05:26:30.603103+00:00 app[web.1]: [2020-06-06 05:26:30 +0000] [9] [INFO] Worker exiting (pid: 9)
+2020-06-06T05:26:30.623371+00:00 app[web.1]: [2020-06-06 05:26:30 +0000] [10] [INFO] Booting worker with pid: 10
+2020-06-06T05:26:30.627019+00:00 app[web.1]: Failed to find attribute 'app' in 'django-ocr-backend'.
+2020-06-06T05:26:30.627151+00:00 app[web.1]: [2020-06-06 05:26:30 +0000] [10] [INFO] Worker exiting (pid: 10)
+2020-06-06T05:26:30.738929+00:00 app[web.1]: [2020-06-06 05:26:30 +0000] [4] [INFO] Shutting down: Master
+2020-06-06T05:26:30.739159+00:00 app[web.1]: [2020-06-06 05:26:30 +0000] [4] [INFO] Reason: App failed to load.
+2020-06-06T05:26:30.832109+00:00 heroku[web.1]: Process exited with status 4
+2020-06-06T05:26:30.887575+00:00 heroku[web.1]: State changed from starting to crashed
+2020-06-06T05:27:34.151162+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=django-ocr-backend.herokuapp.com request_id=ceae06b2-f026-47d6-baa5-c32a9918cddd fwd="24.18.236.208" dyno= connect= service= status=503 bytes= protocol=https
+2020-06-06T05:28:48.000000+00:00 app[api]: Build started by user josephvcardenas@gmail.com
+2020-06-06T05:29:21.788878+00:00 app[api]: Deploy 43a18be3 by user josephvcardenas@gmail.com
+2020-06-06T05:29:21.788878+00:00 app[api]: Release v27 created by user josephvcardenas@gmail.com
+2020-06-06T05:29:22.084755+00:00 heroku[web.1]: State changed from crashed to starting
+2020-06-06T05:29:28.433395+00:00 heroku[web.1]: Starting process with command `gunicorn django-ocr-backend:app --log-file -`
+2020-06-06T05:29:31.341438+00:00 app[web.1]: [2020-06-06 05:29:31 +0000] [4] [INFO] Starting gunicorn 20.0.4
+2020-06-06T05:29:31.341993+00:00 app[web.1]: [2020-06-06 05:29:31 +0000] [4] [INFO] Listening at: http://0.0.0.0:20039 (4)
+2020-06-06T05:29:31.342131+00:00 app[web.1]: [2020-06-06 05:29:31 +0000] [4] [INFO] Using worker: sync
+2020-06-06T05:29:31.345918+00:00 app[web.1]: [2020-06-06 05:29:31 +0000] [9] [INFO] Booting worker with pid: 9
+2020-06-06T05:29:31.350304+00:00 app[web.1]: Failed to find attribute 'app' in 'django-ocr-backend'.
+2020-06-06T05:29:31.350556+00:00 app[web.1]: [2020-06-06 05:29:31 +0000] [9] [INFO] Worker exiting (pid: 9)
+2020-06-06T05:29:31.392543+00:00 app[web.1]: [2020-06-06 05:29:31 +0000] [4] [INFO] Shutting down: Master
+2020-06-06T05:29:31.392638+00:00 app[web.1]: [2020-06-06 05:29:31 +0000] [4] [INFO] Reason: App failed to load.
+2020-06-06T05:29:31.626142+00:00 heroku[web.1]: Process exited with status 4
+2020-06-06T05:29:31.672774+00:00 heroku[web.1]: State changed from starting to crashed
+2020-06-06T05:29:36.000000+00:00 app[api]: Build succeeded
+2020-06-06T05:30:48.233842+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=django-ocr-backend.herokuapp.com request_id=9dd61ae9-d896-4f1c-b214-42369f92d554 fwd="24.18.236.208" dyno= connect= service= status=503 bytes= protocol=https
+2020-06-06T05:37:23.988138+00:00 heroku[web.1]: State changed from crashed to starting
+2020-06-06T05:37:30.815846+00:00 heroku[web.1]: Starting process with command `gunicorn django-ocr-backend:app --log-file -`
+2020-06-06T05:37:33.076818+00:00 app[web.1]: [2020-06-06 05:37:33 +0000] [4] [INFO] Starting gunicorn 20.0.4
+2020-06-06T05:37:33.077486+00:00 app[web.1]: [2020-06-06 05:37:33 +0000] [4] [INFO] Listening at: http://0.0.0.0:30187 (4)
+2020-06-06T05:37:33.077592+00:00 app[web.1]: [2020-06-06 05:37:33 +0000] [4] [INFO] Using worker: sync
+2020-06-06T05:37:33.081560+00:00 app[web.1]: [2020-06-06 05:37:33 +0000] [9] [INFO] Booting worker with pid: 9
+2020-06-06T05:37:33.085407+00:00 app[web.1]: Failed to find attribute 'app' in 'django-ocr-backend'.
+2020-06-06T05:37:33.085564+00:00 app[web.1]: [2020-06-06 05:37:33 +0000] [9] [INFO] Worker exiting (pid: 9)
+2020-06-06T05:37:33.100307+00:00 app[web.1]: [2020-06-06 05:37:33 +0000] [10] [INFO] Booting worker with pid: 10
+2020-06-06T05:37:33.106064+00:00 app[web.1]: Failed to find attribute 'app' in 'django-ocr-backend'.
+2020-06-06T05:37:33.106324+00:00 app[web.1]: [2020-06-06 05:37:33 +0000] [10] [INFO] Worker exiting (pid: 10)
+2020-06-06T05:37:33.224229+00:00 app[web.1]: [2020-06-06 05:37:33 +0000] [4] [INFO] Shutting down: Master
+2020-06-06T05:37:33.224337+00:00 app[web.1]: [2020-06-06 05:37:33 +0000] [4] [INFO] Reason: App failed to load.
+2020-06-06T05:37:33.285447+00:00 heroku[web.1]: Process exited with status 4
+2020-06-06T05:37:33.326301+00:00 heroku[web.1]: State changed from starting to crashed
+2020-06-06T05:41:31.000000+00:00 app[api]: Build started by user josephvcardenas@gmail.com
+2020-06-06T05:41:50.582133+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=django-ocr-backend.herokuapp.com request_id=2bb9f9c8-775a-4240-98e3-24f50c87b217 fwd="24.18.236.208" dyno= connect= service= status=503 bytes= protocol=https
+2020-06-06T05:42:04.248199+00:00 app[api]: Deploy 8c4038ca by user josephvcardenas@gmail.com
+2020-06-06T05:42:04.248199+00:00 app[api]: Release v28 created by user josephvcardenas@gmail.com
+2020-06-06T05:42:04.733221+00:00 heroku[web.1]: State changed from crashed to starting
+2020-06-06T05:42:11.135055+00:00 heroku[web.1]: Starting process with command `gunicorn django-ocr-backend:application --log-file -`
+2020-06-06T05:42:13.121583+00:00 app[web.1]: [2020-06-06 05:42:13 +0000] [4] [INFO] Starting gunicorn 20.0.4
+2020-06-06T05:42:13.122120+00:00 app[web.1]: [2020-06-06 05:42:13 +0000] [4] [INFO] Listening at: http://0.0.0.0:30307 (4)
+2020-06-06T05:42:13.122210+00:00 app[web.1]: [2020-06-06 05:42:13 +0000] [4] [INFO] Using worker: sync
+2020-06-06T05:42:13.126242+00:00 app[web.1]: [2020-06-06 05:42:13 +0000] [9] [INFO] Booting worker with pid: 9
+2020-06-06T05:42:13.130091+00:00 app[web.1]: Failed to find attribute 'application' in 'django-ocr-backend'.
+2020-06-06T05:42:13.130256+00:00 app[web.1]: [2020-06-06 05:42:13 +0000] [9] [INFO] Worker exiting (pid: 9)
+2020-06-06T05:42:13.148023+00:00 app[web.1]: [2020-06-06 05:42:13 +0000] [10] [INFO] Booting worker with pid: 10
+2020-06-06T05:42:13.151434+00:00 app[web.1]: Failed to find attribute 'application' in 'django-ocr-backend'.
+2020-06-06T05:42:13.151558+00:00 app[web.1]: [2020-06-06 05:42:13 +0000] [10] [INFO] Worker exiting (pid: 10)
+2020-06-06T05:42:13.260836+00:00 app[web.1]: [2020-06-06 05:42:13 +0000] [4] [INFO] Shutting down: Master
+2020-06-06T05:42:13.260929+00:00 app[web.1]: [2020-06-06 05:42:13 +0000] [4] [INFO] Reason: App failed to load.
+2020-06-06T05:42:13.323783+00:00 heroku[web.1]: Process exited with status 4
+2020-06-06T05:42:13.363083+00:00 heroku[web.1]: State changed from starting to crashed
+2020-06-06T05:42:19.000000+00:00 app[api]: Build succeeded
+2020-06-06T05:44:20.000000+00:00 app[api]: Build started by user josephvcardenas@gmail.com
+2020-06-06T05:44:58.493057+00:00 app[api]: Deploy 8c4038ca by user josephvcardenas@gmail.com
+2020-06-06T05:44:58.493057+00:00 app[api]: Release v29 created by user josephvcardenas@gmail.com
+2020-06-06T05:44:58.712575+00:00 heroku[web.1]: State changed from crashed to starting
+2020-06-06T05:45:06.649297+00:00 heroku[web.1]: Starting process with command `gunicorn django-ocr-backend:application --log-file -`
+2020-06-06T05:45:09.436620+00:00 app[web.1]: [2020-06-06 05:45:09 +0000] [4] [INFO] Starting gunicorn 20.0.4
+2020-06-06T05:45:09.437367+00:00 app[web.1]: [2020-06-06 05:45:09 +0000] [4] [INFO] Listening at: http://0.0.0.0:36382 (4)
+2020-06-06T05:45:09.437456+00:00 app[web.1]: [2020-06-06 05:45:09 +0000] [4] [INFO] Using worker: sync
+2020-06-06T05:45:09.441421+00:00 app[web.1]: [2020-06-06 05:45:09 +0000] [9] [INFO] Booting worker with pid: 9
+2020-06-06T05:45:09.445232+00:00 app[web.1]: Failed to find attribute 'application' in 'django-ocr-backend'.
+2020-06-06T05:45:09.445399+00:00 app[web.1]: [2020-06-06 05:45:09 +0000] [9] [INFO] Worker exiting (pid: 9)
+2020-06-06T05:45:09.478299+00:00 app[web.1]: [2020-06-06 05:45:09 +0000] [4] [INFO] Shutting down: Master
+2020-06-06T05:45:09.478469+00:00 app[web.1]: [2020-06-06 05:45:09 +0000] [4] [INFO] Reason: App failed to load.
+2020-06-06T05:45:09.558275+00:00 heroku[web.1]: Process exited with status 4
+2020-06-06T05:45:09.597511+00:00 heroku[web.1]: State changed from starting to crashed
+2020-06-06T05:45:13.000000+00:00 app[api]: Build succeeded
+2020-06-06T05:45:29.687323+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=django-ocr-backend.herokuapp.com request_id=6304c550-a1f0-412f-94de-e199d5fa9859 fwd="24.18.236.208" dyno= connect= service= status=503 bytes= protocol=https
+2020-06-06T05:46:59.000000+00:00 app[api]: Build started by user josephvcardenas@gmail.com
+2020-06-06T05:47:33.167360+00:00 app[api]: Release v30 created by user josephvcardenas@gmail.com
+2020-06-06T05:47:33.167360+00:00 app[api]: Deploy 8c4038ca by user josephvcardenas@gmail.com
+2020-06-06T05:47:33.355937+00:00 heroku[web.1]: State changed from crashed to starting
+2020-06-06T05:47:39.648791+00:00 heroku[web.1]: Starting process with command `gunicorn django-ocr-backend:application --log-file -`
+2020-06-06T05:47:41.804938+00:00 app[web.1]: [2020-06-06 05:47:41 +0000] [4] [INFO] Starting gunicorn 20.0.4
+2020-06-06T05:47:41.805537+00:00 app[web.1]: [2020-06-06 05:47:41 +0000] [4] [INFO] Listening at: http://0.0.0.0:17446 (4)
+2020-06-06T05:47:41.805642+00:00 app[web.1]: [2020-06-06 05:47:41 +0000] [4] [INFO] Using worker: sync
+2020-06-06T05:47:41.809186+00:00 app[web.1]: [2020-06-06 05:47:41 +0000] [9] [INFO] Booting worker with pid: 9
+2020-06-06T05:47:41.812390+00:00 app[web.1]: Failed to find attribute 'application' in 'django-ocr-backend'.
+2020-06-06T05:47:41.812526+00:00 app[web.1]: [2020-06-06 05:47:41 +0000] [9] [INFO] Worker exiting (pid: 9)
+2020-06-06T05:47:41.839670+00:00 app[web.1]: [2020-06-06 05:47:41 +0000] [4] [INFO] Shutting down: Master
+2020-06-06T05:47:41.839741+00:00 app[web.1]: [2020-06-06 05:47:41 +0000] [4] [INFO] Reason: App failed to load.
+2020-06-06T05:47:41.920839+00:00 heroku[web.1]: Process exited with status 4
+2020-06-06T05:47:41.963000+00:00 heroku[web.1]: State changed from starting to crashed
+2020-06-06T05:47:48.000000+00:00 app[api]: Build succeeded
+Terminate batch job (Y/N)? 
