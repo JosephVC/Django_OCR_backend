@@ -1,0 +1,134 @@
+2020-06-06T04:33:45.863299+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+2020-06-06T04:33:45.863300+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+2020-06-06T04:33:45.863300+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+2020-06-06T04:33:45.863300+00:00 app[web.1]: ModuleNotFoundError: No module named 'django-ocr-backend.wsgi'
+2020-06-06T04:33:45.863431+00:00 app[web.1]: [2020-06-06 04:33:45 +0000] [10] [INFO] Worker exiting (pid: 10)
+2020-06-06T04:33:45.944260+00:00 app[web.1]: Traceback (most recent call last):
+2020-06-06T04:33:45.945169+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/arbiter.py", line 209, in run
+2020-06-06T04:33:45.945578+00:00 app[web.1]: self.sleep()
+2020-06-06T04:33:45.945610+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/arbiter.py", line 357, in sleep
+2020-06-06T04:33:45.946000+00:00 app[web.1]: ready = select.select([self.PIPE[0]], [], [], 1.0)
+2020-06-06T04:33:45.946025+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+2020-06-06T04:33:45.946273+00:00 app[web.1]: self.reap_workers()
+2020-06-06T04:33:45.946296+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+2020-06-06T04:33:45.946654+00:00 app[web.1]: raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+2020-06-06T04:33:45.946792+00:00 app[web.1]: gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+2020-06-06T04:33:45.946818+00:00 app[web.1]: 
+2020-06-06T04:33:45.946819+00:00 app[web.1]: During handling of the above exception, another exception occurred:
+2020-06-06T04:33:45.946819+00:00 app[web.1]: 
+2020-06-06T04:33:45.946841+00:00 app[web.1]: Traceback (most recent call last):
+2020-06-06T04:33:45.946862+00:00 app[web.1]: File "/app/.heroku/python/bin/gunicorn", line 8, in <module>
+2020-06-06T04:33:45.947024+00:00 app[web.1]: sys.exit(run())
+2020-06-06T04:33:45.947045+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in run
+2020-06-06T04:33:45.948038+00:00 app[web.1]: WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+2020-06-06T04:33:45.948062+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/app/base.py", line 228, in run
+2020-06-06T04:33:45.948336+00:00 app[web.1]: super().run()
+2020-06-06T04:33:45.948358+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/app/base.py", line 72, in run
+2020-06-06T04:33:45.948549+00:00 app[web.1]: Arbiter(self).run()
+2020-06-06T04:33:45.948571+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/arbiter.py", line 229, in run
+2020-06-06T04:33:45.948808+00:00 app[web.1]: self.halt(reason=inst.reason, exit_status=inst.exit_status)
+2020-06-06T04:33:45.948830+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/arbiter.py", line 342, in halt
+2020-06-06T04:33:45.955715+00:00 app[web.1]: self.stop()
+2020-06-06T04:33:45.955746+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/arbiter.py", line 393, in stop
+2020-06-06T04:33:45.956215+00:00 app[web.1]: time.sleep(0.1)
+2020-06-06T04:33:45.956244+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+2020-06-06T04:33:45.956537+00:00 app[web.1]: self.reap_workers()
+2020-06-06T04:33:45.956566+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+2020-06-06T04:33:45.956996+00:00 app[web.1]: raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+2020-06-06T04:33:45.957152+00:00 app[web.1]: gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+2020-06-06T04:33:46.102400+00:00 heroku[web.1]: Process exited with status 1
+2020-06-06T04:33:46.601177+00:00 heroku[web.1]: State changed from starting to crashed
+2020-06-06T04:33:47.000000+00:00 app[api]: Build succeeded
+2020-06-06T04:38:07.261191+00:00 heroku[web.1]: State changed from crashed to starting
+2020-06-06T04:38:14.624852+00:00 heroku[web.1]: Starting process with command `gunicorn django-ocr-backend.wsgi --log-file -`
+2020-06-06T04:38:17.446655+00:00 app[web.1]: [2020-06-06 04:38:17 +0000] [4] [INFO] Starting gunicorn 20.0.4
+2020-06-06T04:38:17.447279+00:00 app[web.1]: [2020-06-06 04:38:17 +0000] [4] [INFO] Listening at: http://0.0.0.0:21690 (4)
+2020-06-06T04:38:17.447370+00:00 app[web.1]: [2020-06-06 04:38:17 +0000] [4] [INFO] Using worker: sync
+2020-06-06T04:38:17.451109+00:00 app[web.1]: [2020-06-06 04:38:17 +0000] [9] [INFO] Booting worker with pid: 9
+2020-06-06T04:38:17.456689+00:00 app[web.1]: [2020-06-06 04:38:17 +0000] [9] [ERROR] Exception in worker process
+2020-06-06T04:38:17.456690+00:00 app[web.1]: Traceback (most recent call last):
+2020-06-06T04:38:17.456691+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+2020-06-06T04:38:17.456691+00:00 app[web.1]: worker.init_process()
+2020-06-06T04:38:17.456691+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/workers/base.py", line 119, in init_process
+2020-06-06T04:38:17.456692+00:00 app[web.1]: self.load_wsgi()
+2020-06-06T04:38:17.456692+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/workers/base.py", line 144, in load_wsgi
+2020-06-06T04:38:17.456692+00:00 app[web.1]: self.wsgi = self.app.wsgi()
+2020-06-06T04:38:17.456693+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+2020-06-06T04:38:17.456693+00:00 app[web.1]: self.callable = self.load()
+2020-06-06T04:38:17.456694+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 49, in load
+2020-06-06T04:38:17.456694+00:00 app[web.1]: return self.load_wsgiapp()
+2020-06-06T04:38:17.456694+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 39, in load_wsgiapp
+2020-06-06T04:38:17.456695+00:00 app[web.1]: return util.import_app(self.app_uri)
+2020-06-06T04:38:17.456695+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/util.py", line 358, in import_app
+2020-06-06T04:38:17.456696+00:00 app[web.1]: mod = importlib.import_module(module)
+2020-06-06T04:38:17.456696+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/importlib/__init__.py", line 127, in import_module
+2020-06-06T04:38:17.456697+00:00 app[web.1]: return _bootstrap._gcd_import(name[level:], package, level)
+2020-06-06T04:38:17.456697+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+2020-06-06T04:38:17.456697+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+2020-06-06T04:38:17.456698+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+2020-06-06T04:38:17.456698+00:00 app[web.1]: ModuleNotFoundError: No module named 'django-ocr-backend.wsgi'
+2020-06-06T04:38:17.456798+00:00 app[web.1]: [2020-06-06 04:38:17 +0000] [9] [INFO] Worker exiting (pid: 9)
+2020-06-06T04:38:17.467322+00:00 app[web.1]: [2020-06-06 04:38:17 +0000] [10] [INFO] Booting worker with pid: 10
+2020-06-06T04:38:17.479154+00:00 app[web.1]: [2020-06-06 04:38:17 +0000] [10] [ERROR] Exception in worker process
+2020-06-06T04:38:17.479156+00:00 app[web.1]: Traceback (most recent call last):
+2020-06-06T04:38:17.479157+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+2020-06-06T04:38:17.479157+00:00 app[web.1]: worker.init_process()
+2020-06-06T04:38:17.479157+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/workers/base.py", line 119, in init_process
+2020-06-06T04:38:17.479158+00:00 app[web.1]: self.load_wsgi()
+2020-06-06T04:38:17.479158+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/workers/base.py", line 144, in load_wsgi
+2020-06-06T04:38:17.479159+00:00 app[web.1]: self.wsgi = self.app.wsgi()
+2020-06-06T04:38:17.479159+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+2020-06-06T04:38:17.479160+00:00 app[web.1]: self.callable = self.load()
+2020-06-06T04:38:17.479160+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 49, in load
+2020-06-06T04:38:17.479161+00:00 app[web.1]: return self.load_wsgiapp()
+2020-06-06T04:38:17.479161+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 39, in load_wsgiapp
+2020-06-06T04:38:17.479161+00:00 app[web.1]: return util.import_app(self.app_uri)
+2020-06-06T04:38:17.479162+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/util.py", line 358, in import_app
+2020-06-06T04:38:17.479162+00:00 app[web.1]: mod = importlib.import_module(module)
+2020-06-06T04:38:17.479162+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/importlib/__init__.py", line 127, in import_module
+2020-06-06T04:38:17.479163+00:00 app[web.1]: return _bootstrap._gcd_import(name[level:], package, level)
+2020-06-06T04:38:17.479163+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+2020-06-06T04:38:17.479164+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+2020-06-06T04:38:17.479164+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+2020-06-06T04:38:17.479164+00:00 app[web.1]: ModuleNotFoundError: No module named 'django-ocr-backend.wsgi'
+2020-06-06T04:38:17.479438+00:00 app[web.1]: [2020-06-06 04:38:17 +0000] [10] [INFO] Worker exiting (pid: 10)
+2020-06-06T04:38:17.591665+00:00 app[web.1]: [2020-06-06 04:38:17 +0000] [4] [INFO] Shutting down: Master
+2020-06-06T04:38:17.591873+00:00 app[web.1]: [2020-06-06 04:38:17 +0000] [4] [INFO] Reason: Worker failed to boot.
+2020-06-06T04:38:17.673558+00:00 heroku[web.1]: Process exited with status 3
+2020-06-06T04:38:17.716940+00:00 heroku[web.1]: State changed from starting to crashed
+2020-06-06T04:59:16.312001+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=django-ocr-backend.herokuapp.com request_id=1d8036d6-ae91-4ee0-908f-5c1c665054c0 fwd="24.18.236.208" dyno= connect= service= status=503 bytes= protocol=https
+2020-06-06T04:59:16.917022+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=django-ocr-backend.herokuapp.com request_id=86a46e3a-be39-48b1-bb11-540fb2934ce0 fwd="24.18.236.208" dyno= connect= service= status=503 bytes= protocol=https
+2020-06-06T05:00:09.201875+00:00 heroku[web.1]: State changed from crashed to starting
+2020-06-06T05:00:18.307409+00:00 heroku[web.1]: Starting process with command `gunicorn django-ocr-backend.wsgi --log-file -`
+2020-06-06T05:00:21.690084+00:00 heroku[web.1]: Process exited with status 3
+2020-06-06T05:00:21.762424+00:00 heroku[web.1]: State changed from starting to crashed
+2020-06-06T05:00:21.454860+00:00 app[web.1]: [2020-06-06 05:00:21 +0000] [4] [INFO] Starting gunicorn 20.0.4
+2020-06-06T05:00:21.455823+00:00 app[web.1]: [2020-06-06 05:00:21 +0000] [4] [INFO] Listening at: http://0.0.0.0:58635 (4)
+2020-06-06T05:00:21.457551+00:00 app[web.1]: [2020-06-06 05:00:21 +0000] [4] [INFO] Using worker: sync
+2020-06-06T05:00:21.475785+00:00 app[web.1]: [2020-06-06 05:00:21 +0000] [9] [INFO] Booting worker with pid: 9
+2020-06-06T05:00:21.488901+00:00 app[web.1]: [2020-06-06 05:00:21 +0000] [9] [ERROR] Exception in worker process
+2020-06-06T05:00:21.488903+00:00 app[web.1]: Traceback (most recent call last):
+2020-06-06T05:00:21.488904+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+2020-06-06T05:00:21.488905+00:00 app[web.1]: worker.init_process()
+2020-06-06T05:00:21.488905+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/workers/base.py", line 119, in init_process
+2020-06-06T05:00:21.488905+00:00 app[web.1]: self.load_wsgi()
+2020-06-06T05:00:21.488906+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/workers/base.py", line 144, in load_wsgi
+2020-06-06T05:00:21.488906+00:00 app[web.1]: self.wsgi = self.app.wsgi()
+2020-06-06T05:00:21.488927+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+2020-06-06T05:00:21.488928+00:00 app[web.1]: self.callable = self.load()
+2020-06-06T05:00:21.488928+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 49, in load
+2020-06-06T05:00:21.488928+00:00 app[web.1]: return self.load_wsgiapp()
+2020-06-06T05:00:21.488929+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 39, in load_wsgiapp
+2020-06-06T05:00:21.488929+00:00 app[web.1]: return util.import_app(self.app_uri)
+2020-06-06T05:00:21.488930+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/site-packages/gunicorn/util.py", line 358, in import_app
+2020-06-06T05:00:21.488930+00:00 app[web.1]: mod = importlib.import_module(module)
+2020-06-06T05:00:21.488930+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.8/importlib/__init__.py", line 127, in import_module
+2020-06-06T05:00:21.488931+00:00 app[web.1]: return _bootstrap._gcd_import(name[level:], package, level)
+2020-06-06T05:00:21.488931+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+2020-06-06T05:00:21.488932+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+2020-06-06T05:00:21.488932+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+2020-06-06T05:00:21.488932+00:00 app[web.1]: ModuleNotFoundError: No module named 'django-ocr-backend.wsgi'
+2020-06-06T05:00:21.489076+00:00 app[web.1]: [2020-06-06 05:00:21 +0000] [9] [INFO] Worker exiting (pid: 9)
+2020-06-06T05:00:21.555416+00:00 app[web.1]: [2020-06-06 05:00:21 +0000] [4] [INFO] Shutting down: Master
+2020-06-06T05:00:21.559422+00:00 app[web.1]: [2020-06-06 05:00:21 +0000] [4] [INFO] Reason: Worker failed to boot.
+Terminate batch job (Y/N)? 
