@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "django_ocr_backend"
+version = "0.1.0"
+description = "The Django backend to my OCR project"
+authors = ["JosephVC <josephvcardenas@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+gunicorn = "^20.0.4"
+OCRmyPDF = "^9.8.1"
+django = "^3.0.6"
+djangorestframework = "^3.11.0"
+django-heroku = "^0.3.1"
+django-cors-headers = "^3.3.0"
+whitenoise = "^5.1.0"
+pytesseract = "^0.3.4"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
