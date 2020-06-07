@@ -1,1 +1,2 @@
-web: gunicorn django-ocr-backend.wsgi.wsgi --log-file -
+
+web: gunicorn django-ocr-backend.wsgi --log-file -
