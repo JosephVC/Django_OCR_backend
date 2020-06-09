@@ -91,6 +91,17 @@ django = ">=1.11"
 
 [[package]]
 category = "main"
+description = "Interface to the Ghostscript C-API, both high- and low-level, based on ctypes"
+name = "ghostscript"
+optional = false
+python-versions = "*"
+version = "0.6"
+
+[package.dependencies]
+setuptools = "*"
+
+[[package]]
+category = "main"
 description = "WSGI HTTP Server for UNIX"
 name = "gunicorn"
 optional = false
@@ -221,17 +232,6 @@ version = "3.9.7"
 
 [[package]]
 category = "main"
-description = "Python-tesseract is a python wrapper for Google's Tesseract-OCR"
-name = "pytesseract"
-optional = false
-python-versions = "*"
-version = "0.3.4"
-
-[package.dependencies]
-Pillow = "*"
-
-[[package]]
-category = "main"
 description = "World timezone definitions, modern and historical"
 name = "pytz"
 optional = false
@@ -288,7 +288,7 @@ version = "5.1.0"
 brotli = ["brotli"]
 
 [metadata]
-content-hash = "1f1ba7986a661c454f42d2126c2fa0cd3ef1355e39d58dd20269e35b4407a0da"
+content-hash = "15eabe4379ac683fa2862acdf34f16ec9eab125732c9a4071a74caf238b5ffff"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -349,6 +349,10 @@ django-heroku = [
 djangorestframework = [
     {file = "djangorestframework-3.11.0-py3-none-any.whl", hash = "sha256:05809fc66e1c997fd9a32ea5730d9f4ba28b109b9da71fccfa5ff241201fd0a4"},
     {file = "djangorestframework-3.11.0.tar.gz", hash = "sha256:e782087823c47a26826ee5b6fa0c542968219263fb3976ec3c31edab23a4001f"},
+]
+ghostscript = [
+    {file = "ghostscript-0.6-py2.py3-none-any.whl", hash = "sha256:db90da79326ae62e4a3cc58a7c39c4be6503ad71c5e73047fb68599ae5e40cba"},
+    {file = "ghostscript-0.6.tar.gz", hash = "sha256:ad0a71048dd96644c46d09f7c8c7d479e2b4d290ca3125cc49540e463a2877ac"},
 ]
 gunicorn = [
     {file = "gunicorn-20.0.4-py2.py3-none-any.whl", hash = "sha256:cd4a810dd51bf497552cf3f863b575dabd73d6ad6a91075b65936b151cbf4f9c"},
@@ -492,9 +496,6 @@ pycryptodome = [
     {file = "pycryptodome-3.9.7-cp38-cp38-win32.whl", hash = "sha256:7ac729d9091ed5478af2b4a4f44f5335a98febbc008af619e4569a59fe503e40"},
     {file = "pycryptodome-3.9.7-cp38-cp38-win_amd64.whl", hash = "sha256:c109a26a21f21f695d369ff9b87f5d43e0d6c768d8384e10bc74142bed2e092e"},
     {file = "pycryptodome-3.9.7.tar.gz", hash = "sha256:f1add21b6d179179b3c177c33d18a2186a09cc0d3af41ff5ed3f377360b869f2"},
-]
-pytesseract = [
-    {file = "pytesseract-0.3.4.tar.gz", hash = "sha256:afd8a5cdf8ab5d35690efbe71cbf5f89419f668ea8dde7649149815d5c5a899a"},
 ]
 pytz = [
     {file = "pytz-2019.3-py2.py3-none-any.whl", hash = "sha256:1c557d7d0e871de1f5ccd5833f60fb2550652da6be2693c1e02300743d21500d"},
