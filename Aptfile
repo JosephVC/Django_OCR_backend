@@ -1,6 +1,5 @@
 tesseract-ocr
 tesseract-ocr-eng
 libpng-dev
-libpng12-0
-libpng12-dev
- 
+libleptonica-dev 
+libtesseract-dev
