@@ -1,4 +1,4 @@
-from django.http import FileResponse
+from django.http import FileResponse, HttpResponse
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
@@ -34,3 +34,4 @@ class PostViews(APIView):
         else:
             print('error', posts_serializer.errors)
             return Response(posts_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
