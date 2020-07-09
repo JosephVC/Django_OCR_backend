@@ -13,7 +13,7 @@ class PostViews(APIView):
     parser_classes = (MultiPartParser, FormParser)
 
     def get(self, request, *args, **kwargs):
-        posts = Post.objects.all() 
+        posts = Post.objects.all()
         serializer = FileSerializer(posts, many=True)
         return Response(serializer.data)
 
