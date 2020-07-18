@@ -1,0 +1,100 @@
+2020-06-14T02:36:36.791349+00:00 app[web.1]: [2020-06-14 02:36:36 +0000] [4] [INFO] Shutting down: Master
+2020-06-14T02:36:36.887417+00:00 heroku[web.1]: Process exited with status 0
+2020-06-14T02:36:44.502822+00:00 heroku[web.1]: Starting process with command `gunicorn django-ocr-backend.wsgi --log-file -`
+2020-06-14T02:36:46.962469+00:00 app[web.1]: [2020-06-14 02:36:46 +0000] [4] [INFO] Starting gunicorn 20.0.4
+2020-06-14T02:36:46.963006+00:00 app[web.1]: [2020-06-14 02:36:46 +0000] [4] [INFO] Listening at: http://0.0.0.0:21824 (4)
+2020-06-14T02:36:46.963107+00:00 app[web.1]: [2020-06-14 02:36:46 +0000] [4] [INFO] Using worker: sync
+2020-06-14T02:36:46.966955+00:00 app[web.1]: [2020-06-14 02:36:46 +0000] [9] [INFO] Booting worker with pid: 9
+2020-06-14T02:36:46.978416+00:00 app[web.1]: [2020-06-14 02:36:46 +0000] [10] [INFO] Booting worker with pid: 10
+2020-06-14T02:36:47.421889+00:00 heroku[web.1]: State changed from starting to up
+2020-06-14T02:36:53.000000+00:00 app[api]: Build succeeded
+2020-06-14T02:48:16.011032+00:00 app[api]: Starting process with command `python manage.py migrate` by user josephvcardenas@gmail.com
+2020-06-14T02:48:25.076104+00:00 heroku[run.9405]: State changed from starting to up
+2020-06-14T02:48:25.285482+00:00 heroku[run.9405]: Awaiting client
+2020-06-14T02:48:25.323658+00:00 heroku[run.9405]: Starting process with command `python manage.py migrate`
+2020-06-14T02:48:33.193728+00:00 heroku[run.9405]: Process exited with status 0
+2020-06-14T02:48:33.228147+00:00 heroku[run.9405]: State changed from up to complete
+2020-06-14T02:54:23.328693+00:00 app[web.1]: 10.35.254.221 - - [14/Jun/2020:02:54:23 +0000] "GET / HTTP/1.1" 200 6690 "https://dashboard.heroku.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:54:23.330596+00:00 heroku[router]: at=info method=GET path="/" host=django-ocr-backend.herokuapp.com request_id=25248476-dd9c-44dc-ba27-d025c2f64a43 fwd="206.214.61.186" dyno=web.1 connect=0ms service=1684ms status=200 bytes=7138 protocol=https
+2020-06-14T02:54:23.530371+00:00 app[web.1]: 10.35.254.221 - - [14/Jun/2020:02:54:23 +0000] "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:54:23.539614+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/css/bootstrap.min.css" host=django-ocr-backend.herokuapp.com request_id=45781a52-8992-4dc6-a86c-8cde8c3d2515 fwd="206.214.61.186" dyno=web.1 connect=1ms service=16ms status=200 bytes=121758 protocol=https
+2020-06-14T02:54:23.729577+00:00 app[web.1]: 10.13.136.134 - - [14/Jun/2020:02:54:23 +0000] "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:54:23.731885+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/css/bootstrap-tweaks.css" host=django-ocr-backend.herokuapp.com request_id=d5eeeee2-d5f9-4bba-a980-fcaf05d5d1ef fwd="206.214.61.186" dyno=web.1 connect=1ms service=5ms status=200 bytes=3682 protocol=https
+2020-06-14T02:54:23.732384+00:00 app[web.1]: 10.13.130.62 - - [14/Jun/2020:02:54:23 +0000] "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:54:23.733650+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/css/prettify.css" host=django-ocr-backend.herokuapp.com request_id=36c9b7d1-f80c-4653-bff3-4778c1879235 fwd="206.214.61.186" dyno=web.1 connect=0ms service=2ms status=200 bytes=1113 protocol=https
+2020-06-14T02:54:23.735004+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/css/default.css" host=django-ocr-backend.herokuapp.com request_id=0a4855fd-8993-4d64-b0ff-2ea0a3f9dee9 fwd="206.214.61.186" dyno=web.1 connect=1ms service=3ms status=200 bytes=1428 protocol=https
+2020-06-14T02:54:23.735043+00:00 app[web.1]: 10.142.64.122 - - [14/Jun/2020:02:54:23 +0000] "GET /static/rest_framework/css/default.css HTTP/1.1" 200 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:54:23.810660+00:00 app[web.1]: 10.30.119.250 - - [14/Jun/2020:02:54:23 +0000] "GET /static/rest_framework/js/jquery-3.4.1.min.js HTTP/1.1" 200 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:54:23.818656+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/js/jquery-3.4.1.min.js" host=django-ocr-backend.herokuapp.com request_id=18e7be52-784c-4cdc-a2f8-139b88bf8896 fwd="206.214.61.186" dyno=web.1 connect=0ms service=8ms status=200 bytes=88459 protocol=https
+2020-06-14T02:54:23.820945+00:00 app[web.1]: 10.13.136.134 - - [14/Jun/2020:02:54:23 +0000] "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:54:23.823433+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/js/csrf.js" host=django-ocr-backend.herokuapp.com request_id=d8400357-866b-49f2-a902-29a76ce2f1ef fwd="206.214.61.186" dyno=web.1 connect=1ms service=2ms status=200 bytes=2030 protocol=https
+2020-06-14T02:54:23.823800+00:00 app[web.1]: 10.13.130.62 - - [14/Jun/2020:02:54:23 +0000] "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:54:23.826135+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/js/bootstrap.min.js" host=django-ocr-backend.herokuapp.com request_id=f86bbdd3-6a4d-40f3-bc16-44726ca48b7e fwd="206.214.61.186" dyno=web.1 connect=1ms service=6ms status=200 bytes=39993 protocol=https
+2020-06-14T02:54:23.835892+00:00 app[web.1]: 10.33.162.24 - - [14/Jun/2020:02:54:23 +0000] "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:54:23.835893+00:00 app[web.1]: 10.142.64.122 - - [14/Jun/2020:02:54:23 +0000] "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:54:23.836047+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/js/ajax-form.js" host=django-ocr-backend.herokuapp.com request_id=fa89fcc6-5e6a-47ed-bf14-811a428402e7 fwd="206.214.61.186" dyno=web.1 connect=1ms service=2ms status=200 bytes=3908 protocol=https
+2020-06-14T02:54:23.836889+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/js/prettify-min.js" host=django-ocr-backend.herokuapp.com request_id=ba6971e8-69c9-4a60-83b1-81da7e578c81 fwd="206.214.61.186" dyno=web.1 connect=2ms service=5ms status=200 bytes=13945 protocol=https
+2020-06-14T02:54:23.889541+00:00 app[web.1]: 10.35.254.221 - - [14/Jun/2020:02:54:23 +0000] "GET /static/rest_framework/js/default.js HTTP/1.1" 200 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:54:23.891423+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/js/default.js" host=django-ocr-backend.herokuapp.com request_id=b71bee6f-1cac-47ba-8843-f5cba9cd4a79 fwd="206.214.61.186" dyno=web.1 connect=2ms service=5ms status=200 bytes=1579 protocol=https
+2020-06-14T02:54:23.921620+00:00 app[web.1]: 10.13.136.134 - - [14/Jun/2020:02:54:23 +0000] "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 0 "https://django-ocr-backend.herokuapp.com/static/rest_framework/css/bootstrap-tweaks.css" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:54:23.923981+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/img/grid.png" host=django-ocr-backend.herokuapp.com request_id=47107cad-dd6f-417a-88d5-b2bf7bef78b7 fwd="206.214.61.186" dyno=web.1 connect=0ms service=2ms status=200 bytes=1739 protocol=https
+2020-06-14T02:54:24.145517+00:00 app[web.1]: Not Found: /favicon.ico
+2020-06-14T02:54:24.146733+00:00 app[web.1]: 10.35.254.221 - - [14/Jun/2020:02:54:24 +0000] "GET /favicon.ico HTTP/1.1" 404 2296 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:54:24.148365+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=django-ocr-backend.herokuapp.com request_id=48d3c26e-83df-4a28-aa80-7fba458c59b7 fwd="206.214.61.186" dyno=web.1 connect=1ms service=11ms status=404 bytes=2520 protocol=https
+2020-06-14T02:55:04.550036+00:00 heroku[router]: at=info method=GET path="/" host=django-ocr-backend.herokuapp.com request_id=180f7618-e206-4535-97e0-05038c6e4756 fwd="18.209.174.226" dyno=web.1 connect=0ms service=4ms status=200 bytes=272 protocol=https
+2020-06-14T02:55:04.550960+00:00 app[web.1]: 10.35.227.185 - - [14/Jun/2020:02:55:04 +0000] "GET / HTTP/1.1" 200 2 "-" "Slackbot-LinkExpanding 1.0 (+https://api.slack.com/robots)"
+2020-06-14T02:55:04.590822+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=django-ocr-backend.herokuapp.com request_id=76bea8fb-2ca9-4ce4-b34f-33c45a52c2c2 fwd="18.209.174.226" dyno=web.1 connect=1ms service=9ms status=404 bytes=2520 protocol=https
+2020-06-14T02:55:04.593612+00:00 app[web.1]: Not Found: /favicon.ico
+2020-06-14T02:55:04.594527+00:00 app[web.1]: 10.43.250.98 - - [14/Jun/2020:02:55:04 +0000] "GET /favicon.ico HTTP/1.1" 404 2296 "-" "Slackbot 1.0 (+https://api.slack.com/robots)"
+2020-06-14T02:55:11.799909+00:00 heroku[router]: at=info method=GET path="/" host=django-ocr-backend.herokuapp.com request_id=5f3b6fa5-db03-4639-938f-6db55a883339 fwd="206.214.61.186" dyno=web.1 connect=0ms service=31ms status=200 bytes=7138 protocol=https
+2020-06-14T02:55:11.800259+00:00 app[web.1]: 10.35.254.221 - - [14/Jun/2020:02:55:11 +0000] "GET / HTTP/1.1" 200 6690 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:55:11.985447+00:00 app[web.1]: 10.13.130.62 - - [14/Jun/2020:02:55:11 +0000] "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:55:11.986547+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/css/prettify.css" host=django-ocr-backend.herokuapp.com request_id=ea8dc73f-0d74-4d94-bd47-bebbe2f900f1 fwd="206.214.61.186" dyno=web.1 connect=0ms service=2ms status=304 bytes=166 protocol=https
+2020-06-14T02:55:11.991101+00:00 app[web.1]: 10.30.119.250 - - [14/Jun/2020:02:55:11 +0000] "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:55:11.991443+00:00 app[web.1]: 10.35.254.221 - - [14/Jun/2020:02:55:11 +0000] "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:55:11.992719+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/js/jquery-3.4.1.min.js" host=django-ocr-backend.herokuapp.com request_id=b640074a-6365-4eae-bf5b-d7d1fd6c1d21 fwd="206.214.61.186" dyno=web.1 connect=0ms service=3ms status=304 bytes=168 protocol=https
+2020-06-14T02:55:11.992904+00:00 app[web.1]: 10.33.162.24 - - [14/Jun/2020:02:55:11 +0000] "GET /static/rest_framework/js/jquery-3.4.1.min.js HTTP/1.1" 304 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:55:11.993270+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/css/bootstrap-tweaks.css" host=django-ocr-backend.herokuapp.com request_id=e1d2c1b3-a96b-4262-8890-4675e52ac646 fwd="206.214.61.186" dyno=web.1 connect=0ms service=2ms status=304 bytes=166 protocol=https
+2020-06-14T02:55:11.993277+00:00 app[web.1]: 10.142.64.122 - - [14/Jun/2020:02:55:11 +0000] "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:55:11.993432+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/css/bootstrap.min.css" host=django-ocr-backend.herokuapp.com request_id=88e8b416-eafd-4eb7-9cba-577313fa33d2 fwd="206.214.61.186" dyno=web.1 connect=0ms service=2ms status=304 bytes=168 protocol=https
+2020-06-14T02:55:11.993750+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/css/default.css" host=django-ocr-backend.herokuapp.com request_id=8effe21f-9b60-4759-8cc8-f84177ceecee fwd="206.214.61.186" dyno=web.1 connect=1ms service=4ms status=304 bytes=166 protocol=https
+2020-06-14T02:55:12.147761+00:00 app[web.1]: 10.30.119.250 - - [14/Jun/2020:02:55:12 +0000] "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:55:12.149888+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/js/csrf.js" host=django-ocr-backend.herokuapp.com request_id=7c8a7107-d6d0-4fa7-9abd-c68c47a7fe1c fwd="206.214.61.186" dyno=web.1 connect=0ms service=2ms status=304 bytes=166 protocol=https
+2020-06-14T02:55:12.157658+00:00 app[web.1]: 10.35.254.221 - - [14/Jun/2020:02:55:12 +0000] "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:55:12.158650+00:00 app[web.1]: 10.13.130.62 - - [14/Jun/2020:02:55:12 +0000] "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:55:12.159614+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/js/ajax-form.js" host=django-ocr-backend.herokuapp.com request_id=877befd9-9138-4465-a966-7496673b3a88 fwd="206.214.61.186" dyno=web.1 connect=1ms service=2ms status=304 bytes=166 protocol=https
+2020-06-14T02:55:12.159644+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/js/bootstrap.min.js" host=django-ocr-backend.herokuapp.com request_id=4ad8a6fd-c873-48b1-8564-c53966f4253c fwd="206.214.61.186" dyno=web.1 connect=1ms service=2ms status=304 bytes=167 protocol=https
+2020-06-14T02:55:12.159690+00:00 app[web.1]: 10.33.162.24 - - [14/Jun/2020:02:55:12 +0000] "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:55:12.161144+00:00 app[web.1]: 10.142.64.122 - - [14/Jun/2020:02:55:12 +0000] "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0 "https://django-ocr-backend.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:55:12.161600+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/js/default.js" host=django-ocr-backend.herokuapp.com request_id=ff9ce2f4-dca0-469f-9aeb-f842fd6a7b19 fwd="206.214.61.186" dyno=web.1 connect=0ms service=3ms status=304 bytes=166 protocol=https
+2020-06-14T02:55:12.162631+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/js/prettify-min.js" host=django-ocr-backend.herokuapp.com request_id=e5fa338d-5e19-405d-b697-b88e3bf7136b fwd="206.214.61.186" dyno=web.1 connect=4ms service=6ms status=304 bytes=167 protocol=https
+2020-06-14T02:55:12.188859+00:00 app[web.1]: 10.13.136.134 - - [14/Jun/2020:02:55:12 +0000] "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0 "https://django-ocr-backend.herokuapp.com/static/rest_framework/css/bootstrap-tweaks.css" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:77.0) Gecko/20100101 Firefox/77.0"
+2020-06-14T02:55:12.193289+00:00 heroku[router]: at=info method=GET path="/static/rest_framework/img/grid.png" host=django-ocr-backend.herokuapp.com request_id=b6866cc7-a69c-4092-9646-e851d07c6b7f fwd="206.214.61.186" dyno=web.1 connect=0ms service=4ms status=304 bytes=166 protocol=https
+2020-06-14T03:31:02.673164+00:00 heroku[web.1]: Idling
+2020-06-14T03:31:02.675231+00:00 heroku[web.1]: State changed from up to down
+2020-06-14T03:31:03.672031+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2020-06-14T03:31:03.700629+00:00 app[web.1]: [2020-06-14 03:31:03 +0000] [9] [INFO] Worker exiting (pid: 9)
+2020-06-14T03:31:03.701135+00:00 app[web.1]: [2020-06-14 03:31:03 +0000] [4] [INFO] Handling signal: term
+2020-06-14T03:31:03.702868+00:00 app[web.1]: [2020-06-14 03:31:03 +0000] [10] [INFO] Worker exiting (pid: 10)
+2020-06-14T03:31:03.902161+00:00 app[web.1]: [2020-06-14 03:31:03 +0000] [4] [INFO] Shutting down: Master
+2020-06-14T03:31:04.022974+00:00 heroku[web.1]: Process exited with status 0
+2020-06-14T17:41:51.000000+00:00 app[api]: Build started by user josephvcardenas@gmail.com
+2020-06-14T17:43:25.756935+00:00 app[api]: Release v26 created by user josephvcardenas@gmail.com
+2020-06-14T17:43:25.756935+00:00 app[api]: Deploy 1bc84567 by user josephvcardenas@gmail.com
+2020-06-14T17:43:26.181173+00:00 heroku[web.1]: State changed from down to starting
+2020-06-14T17:43:35.518787+00:00 heroku[web.1]: Starting process with command `gunicorn django-ocr-backend.wsgi --log-file -`
+2020-06-14T17:43:38.264862+00:00 app[web.1]: [2020-06-14 17:43:38 +0000] [4] [INFO] Starting gunicorn 20.0.4
+2020-06-14T17:43:38.265452+00:00 app[web.1]: [2020-06-14 17:43:38 +0000] [4] [INFO] Listening at: http://0.0.0.0:12320 (4)
+2020-06-14T17:43:38.265534+00:00 app[web.1]: [2020-06-14 17:43:38 +0000] [4] [INFO] Using worker: sync
+2020-06-14T17:43:38.269101+00:00 app[web.1]: [2020-06-14 17:43:38 +0000] [9] [INFO] Booting worker with pid: 9
+2020-06-14T17:43:38.309799+00:00 app[web.1]: [2020-06-14 17:43:38 +0000] [10] [INFO] Booting worker with pid: 10
+2020-06-14T17:43:39.936535+00:00 heroku[web.1]: State changed from starting to up
+2020-06-14T17:43:43.000000+00:00 app[api]: Build succeeded
+2020-06-14T18:16:14.215359+00:00 heroku[web.1]: Idling
+2020-06-14T18:16:14.217427+00:00 heroku[web.1]: State changed from up to down
+2020-06-14T18:16:18.491962+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2020-06-14T18:16:18.530632+00:00 app[web.1]: [2020-06-14 18:16:18 +0000] [4] [INFO] Handling signal: term
+2020-06-14T18:16:18.531591+00:00 app[web.1]: [2020-06-14 18:16:18 +0000] [10] [INFO] Worker exiting (pid: 10)
+2020-06-14T18:16:18.532287+00:00 app[web.1]: [2020-06-14 18:16:18 +0000] [9] [INFO] Worker exiting (pid: 9)
+2020-06-14T18:16:18.731742+00:00 app[web.1]: [2020-06-14 18:16:18 +0000] [4] [INFO] Shutting down: Master
+2020-06-14T18:16:18.815183+00:00 heroku[web.1]: Process exited with status 0

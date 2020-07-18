@@ -21,12 +21,7 @@ class PostViews(APIView):
         
         posts_serializer = FileSerializer(data=request.data)
         if posts_serializer.is_valid():
-            
-            # THE BELOW WORKS GREAT,  NOW TO REMOVE THE HARD-CODED PATH
-            # process = Popen(['ocrmypdf', r"C:\Users\Joseph\Desktop\backpack-scan.pdf", 'output.pdf'])
-            # print(process)
-            # output_file = process.stdout.read()
-          
+                     
             # The below removes the necessity to hard-code the path to the input file.
             uploaded = posts_serializer.save()
             process = Popen(['ocrmypdf', uploaded.file.path, 'output.pdf'])
