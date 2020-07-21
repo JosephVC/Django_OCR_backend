@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #Security settings for deployment
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_OCR_BACKEND_SECRET_KEY')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'yrzv9(1j^$4uo*9@f2*8j2+8u25eza613!8+ajyx2czmh)w00-')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -37,6 +37,10 @@ SECURE_REFERRER_POLICY = 'origin'
 SECURE_SSL_REDIRECT= True
 SESSION_COOKIE_SECURE = True
 
+# NOTE: CORS was set to specify a whitelist, but this caused runserver to goof
+# changing CORS to ALLOW_ALL allows things to run
+# This enables all API requests from a different server to be allowed. 
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -72,10 +76,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# NOTE: CORS was set to specify a whitelist, but this caused runserver to goof
-# changing CORS to ALLOW_ALL allows things to run
-# This enables all API requests from a different server to be allowed. 
-CORS_ORIGIN_ALLOW_ALL = True
+
 
 ROOT_URLCONF = 'django-ocr-backend.urls'
 
