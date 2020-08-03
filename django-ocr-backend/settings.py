@@ -41,8 +41,6 @@ SESSION_COOKIE_SECURE = True
 # NOTE: CORS was set to specify a whitelist, but this caused runserver to goof
 # changing CORS to ALLOW_ALL allows things to run
 # This enables all API requests from a different server to be allowed. 
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_WHITELIST = ['*.herokuapp.com']
 
 # Application definition
 
