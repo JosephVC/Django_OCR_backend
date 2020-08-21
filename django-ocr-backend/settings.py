@@ -29,14 +29,14 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'reference-project-secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-DEBUG = False
+# DEBUG = True
 ALLOWED_HOSTS = ['.herokuapp.com']
 # ALLOWED_HOSTS = ['*']
 CSRF_COOKIE_SECURE = 'True'
 SECURE_REFERRER_POLICY = 'origin'
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = True
 
 # NOTE: CORS was set to specify a whitelist, but this caused runserver to goof
