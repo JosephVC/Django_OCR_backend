@@ -3,11 +3,19 @@ from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from rest_framework import status
-import ocrmypdf
 from subprocess import Popen, PIPE, STDOUT
+
+import boto3
+from botocore.client import Config
+import ocrmypdf
+import os
 
 from .serializers import FileSerializer
 from .models import Post
+
+ACCESS_KEY_ID = os.environ.get('S3_ACCESS_KEY_ID', 'AWS_ACCESS_KEY_ID')
+ACCESS_SECRET_KEY = os.environ.get('AWS_S3_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY')
+BUCKET_NAME = 'heroku-backend-bucket'
 
 class PostViews(APIView):
     parser_classes = (MultiPartParser, FormParser)
