@@ -5,18 +5,15 @@ from rest_framework.response import Response
 from rest_framework import status
 from subprocess import Popen, PIPE, STDOUT
 
-import boto3
-from botocore.client import Config
-
 import ocrmypdf
 import os
 
 from .serializers import FileSerializer
 from .models import Post
 
-ACCESS_KEY_ID = os.environ.get('S3_ACCESS_KEY_ID', 'AWS_ACCESS_KEY_ID')
-ACCESS_SECRET_KEY = os.environ.get('AWS_S3_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY')
-BUCKET_NAME = 'heroku-backend-bucket'
+ACCESS_KEY_ID = os.environ.get('')
+ACCESS_SECRET_KEY = os.environ.get('')
+BUCKET_NAME = ''
 
 class PostViews(APIView):
     parser_classes = (MultiPartParser, FormParser)
@@ -39,11 +36,8 @@ class PostViews(APIView):
             return Response(posts_serializer.data, status=status.HTTP_201_CREATED)
 
             # now that weve uploaded and processed our pdf, 
-            # it's time to send it of to the AWS bucket
+            # it's time to send it of to the Azure storage
 
-            s3 = boto3.resources('s3',
-                aws_access_key = ACCESS_KEY_ID,
-                aws_secret_access_key = ACCESS_SECRET_KEY)
 
         else:
             print('error', posts_serializer.errors)
