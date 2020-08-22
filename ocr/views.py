@@ -36,11 +36,8 @@ class PostViews(APIView):
             return Response(posts_serializer.data, status=status.HTTP_201_CREATED)
 
             # now that weve uploaded and processed our pdf, 
-            # it's time to send it of to the AWS bucket
+            # it's time to send it of to the Azure storage
 
-            s3 = boto3.resources('s3',
-                aws_access_key = ACCESS_KEY_ID,
-                aws_secret_access_key = ACCESS_SECRET_KEY)
 
         else:
             print('error', posts_serializer.errors)
