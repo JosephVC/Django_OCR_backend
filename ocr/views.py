@@ -7,6 +7,7 @@ from subprocess import Popen, PIPE, STDOUT
 
 import boto3
 from botocore.client import Config
+
 import ocrmypdf
 import os
 
@@ -40,15 +41,9 @@ class PostViews(APIView):
             # now that weve uploaded and processed our pdf, 
             # it's time to send it of to the AWS bucket
 
-            data = open('output.pdf', 'rb')
-
-            s3 = boto3.resource(
-                's3',
-                aws_access_key_id=ACCESS_KEY_ID,
-                aws_secret_access_key=ACCESS_SECRET_KEY,
-                config=Config(signature_version='s3v4')
-            )
-            s3.Bucket(BUCKET_NAME).put_object(Key='media/output.pdf', Body=data)
+            s3 = boto3.resources('s3',
+                aws_access_key = ACCESS_KEY_ID,
+                aws_secret_access_key = ACCESS_SECRET_KEY)
 
         else:
             print('error', posts_serializer.errors)
