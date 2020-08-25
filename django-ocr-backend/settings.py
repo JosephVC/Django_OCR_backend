@@ -31,9 +31,9 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'reference-project-secret-key')
 
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-# DEBUG = True
-ALLOWED_HOSTS = ['.herokuapp.com']
-# ALLOWED_HOSTS = ['*']
+DEBUG = True
+# ALLOWED_HOSTS = ['.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 CSRF_COOKIE_SECURE = 'True'
 SECURE_REFERRER_POLICY = 'origin'
 SECURE_SSL_REDIRECT = False
@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'ocr',
     'whitenoise',
+    'storages',
 ]
 
 
@@ -66,7 +67,7 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+    # 'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware', 
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -147,12 +148,35 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+# we're commenting out the below files as we'll have new settings
+# as we push files to S3
+
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-# settings for pushing to Azure
+# AWS settings
 
+AWS_LOCATION = 'static'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID') 
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME ='heroku-backend-bucket'
+AWS_S3_CUSTOM_DOMAIN='%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {    
+     'CacheControl': 'max-age=86400',
+}
+# DEFAULT_FILE_STORAGE = 'app.storage_backends.MediaStorage'
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+# STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'image/static'),
+] 
+STATIC_URL='https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+STATICFILES_FINDERS = ('django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+AWS_DEFAULT_ACL = None
 
 
 # Configure Django App for Heroku.

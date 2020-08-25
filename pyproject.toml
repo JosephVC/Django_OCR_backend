@@ -15,6 +15,7 @@ whitenoise = "^5.2.0"
 pytesseract = "^0.3.5"
 OCRmyPDF = "^11.0.1"
 ghostscript = "^0.6"
+boto3 = "^1.14.47"
 
 [tool.poetry.dev-dependencies]
 

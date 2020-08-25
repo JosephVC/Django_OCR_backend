@@ -11,9 +11,6 @@ import os
 from .serializers import FileSerializer
 from .models import Post
 
-ACCESS_KEY_ID = os.environ.get('')
-ACCESS_SECRET_KEY = os.environ.get('')
-BUCKET_NAME = ''
 
 class PostViews(APIView):
     parser_classes = (MultiPartParser, FormParser)
