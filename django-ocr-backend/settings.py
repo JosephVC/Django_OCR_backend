@@ -32,8 +32,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'reference-project-secret-key')
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 DEBUG = True
-# ALLOWED_HOSTS = ['.herokuapp.com']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.herokuapp.com']
+# ALLOWED_HOSTS = ['*']
 CSRF_COOKIE_SECURE = 'True'
 SECURE_REFERRER_POLICY = 'origin'
 SECURE_SSL_REDIRECT = False
@@ -67,7 +67,7 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
-    # 'django.middleware.security.SecurityMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware', 
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
