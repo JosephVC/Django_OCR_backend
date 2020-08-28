@@ -32,10 +32,6 @@ class PostViews(APIView):
 
             return Response(posts_serializer.data, status=status.HTTP_201_CREATED)
 
-            # now that weve uploaded and processed our pdf, 
-            # it's time to send it of to the Azure storage
-
-
         else:
             print('error', posts_serializer.errors)
             return Response(posts_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
