@@ -1,5 +1,6 @@
 from django.http import FileResponse, HttpResponse
-from rest_framework.views import APIView
+# from rest_framework.views import APIView
+from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from rest_framework import status
@@ -12,7 +13,10 @@ from .serializers import FileSerializer
 from .models import Post
 
 
-class PostViews(APIView):
+class PostViews(CreateAPIView, ListAPIView):
+    queryset = Post.objects.all()
+    serialzer_class = FileSerializer
+
     parser_classes = (MultiPartParser, FormParser)
 
     def get(self, request, *args, **kwargs):
