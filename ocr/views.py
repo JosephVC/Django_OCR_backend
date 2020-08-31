@@ -13,9 +13,9 @@ from .serializers import FileSerializer
 from .models import Post
 
 
-class PostViews(CreateAPIView, ListAPIView):
+class PostViews(ListAPIView):
     queryset = Post.objects.all()
-    serialzer_class = FileSerializer
+    serializer_class = FileSerializer
 
     parser_classes = (MultiPartParser, FormParser)
 
