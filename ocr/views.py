@@ -12,6 +12,7 @@ import os
 from .serializers import FileSerializer
 from .models import Post
 
+
 class PostViews(ListAPIView):
     serializer_class = FileSerializer
     queryset = Post.objects.all()
