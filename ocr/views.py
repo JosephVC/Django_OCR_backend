@@ -1,10 +1,6 @@
 from django.http import FileResponse, HttpResponse
 # from rest_framework.views import APIView
-<<<<<<< HEAD
 from rest_framework.generics import ListAPIView
-=======
-from rest_framework.generics import CreateAPIView, ListAPIView
->>>>>>> ab93cae9d66fb37008bf3ffa4359f18dc75618bb
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from rest_framework import status
