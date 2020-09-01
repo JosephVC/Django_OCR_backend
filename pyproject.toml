@@ -5,7 +5,7 @@ description = ""
 authors = ["Joseph Cardenas <josephvcardenas@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.7"
 django-storages = "^1.9.1"
 gunicorn = "^20.0.4"
 djangorestframework = "^3.11.1"
@@ -16,6 +16,7 @@ pytesseract = "^0.3.5"
 OCRmyPDF = "^11.0.1"
 ghostscript = "^0.6"
 boto3 = "^1.14.47"
+django = "^3.1"
 
 [tool.poetry.dev-dependencies]
 
