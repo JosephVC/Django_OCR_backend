@@ -31,9 +31,9 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'reference-project-secret-key')
 
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-DEBUG = False
-# ALLOWED_HOSTS = ['.herokuapp.com']
-ALLOWED_HOSTS = ['*']
+DEBUG = True
+ALLOWED_HOSTS = ['.herokuapp.com']
+# ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
 CSRF_COOKIE_SECURE = 'True'
 SECURE_REFERRER_POLICY = 'origin'
