@@ -25,24 +25,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #Security settings for deployment
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
+# For this project, I decided to make my secret keys environment variables
+# on my local machine, and configuration variables within Heroku.
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'reference-project-secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-
-DEBUG = True
 ALLOWED_HOSTS = ['.herokuapp.com']
-# ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
 CSRF_COOKIE_SECURE = 'True'
 SECURE_REFERRER_POLICY = 'origin'
 SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = True
-
-# NOTE: CORS was set to specify a whitelist, but this caused runserver to goof
-# changing CORS to ALLOW_ALL allows things to run
-# This enables all API requests from a different server to be allowed. 
 
 # Application definition
 
@@ -158,6 +154,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # AWS settings
 
+# Like for my SECRET_KEY, I created environment variables for AWS keys
+# and created config vars for these values in Heroku.
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'ocr-backend-bucket'
@@ -171,7 +169,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'mysite/static'),
 ]
 
-# https://ocr-backend-bucket.s3.amazonaws.com
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
