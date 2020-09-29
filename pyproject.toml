@@ -17,6 +17,7 @@ OCRmyPDF = "^11.0.1"
 ghostscript = "^0.6"
 boto3 = "^1.14.47"
 django = "^3.1"
+python-dotenv = "^0.14.0"
 
 [tool.poetry.dev-dependencies]
 
