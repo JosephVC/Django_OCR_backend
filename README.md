@@ -19,4 +19,13 @@ The front end of the web application is [hosted](https://ocr-app-frontend.heroku
 The front end uses a simple upload form and asks for a simple title and description.  
 
 ### Viewing uploaded files
-The file you upload is OCR'd via the back end, with the resulting file being stored in an S3 bucket. The Django back end keeps a list of each file and its corresponding title and description, with this list being mirrored on the front end.  The latter allows the user to see and download what they've uploaded.  **Future updates** to the front end will allow for greater functionality, such as grid views, visual previews of PDFs, as well as selection and editing of PDFs.
+The file we upload is OCR'd via the back end, with the resulting file being stored in an S3 bucket. The Django back end keeps a list of each file and its corresponding title and description, with this list being mirrored on the front end.  The latter allows the user to see and download what they've uploaded.  **Future updates** to the front end will allow for greater functionality, such as grid views, visual previews of PDFs, as well as selection and editing of PDFs.
+
+## Using the App Locally
+We'll need to clone the [front end repo](https://github.com/JosephVC/React_OCR_frontend) in order to upload files.  
+
+### Prepare the Front End
+Make sure `UploadForm.js` points to `localhost:8000` rather than the Heroku-hosted backend (this is only if we want to keep both front and back ends local). Do the same with `FileList.js`.  
+
+### Start Up the Front End
+Run `npm start` from within the front end repo that was just cloned.  
