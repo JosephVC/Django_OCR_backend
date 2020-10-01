@@ -31,4 +31,7 @@ Make sure `UploadForm.js` points to `localhost:8000` rather than the Heroku-host
 Ensure your `ALLOWED_HOSTS` settings allow `localhost` in addition to `.herokuapp.com`.  Also make sure to set `DEBUG` to `True` as you are not running the app in production. 
 
 ### Start Up the Front End
-Run `npm start` from within the front end repo that was just cloned.  
+Run `npm start` from within the front end repo that was just cloned. If you followed the above directions, your front end should be pointing to the local back end server rather than the deployed version. 
+
+### Start Up the Back End
+Type `python manage.py runserver` within the [back end repo](https://github.com/JosephVC/Django_OCR_backend) to start the back end server.  If you followed the above directions, your back end server should be free to talk to the front end.
