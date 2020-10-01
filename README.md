@@ -28,6 +28,7 @@ We'll need to clone the [front end repo](https://github.com/JosephVC/React_OCR_f
 Make sure `UploadForm.js` points to `localhost:8000` rather than the Heroku-hosted backend (this is only if we want to keep both front and back ends local). Do the same with `FileList.js`.  
 
 ### Prepare the Back End
+Ensure your `ALLOWED_HOSTS` settings allow `localhost` in addition to `.herokuapp.com`.  Also make sure to set `DEBUG` to `True` as you are not running the app in production. 
 
 ### Start Up the Front End
 Run `npm start` from within the front end repo that was just cloned.  
