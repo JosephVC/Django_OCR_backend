@@ -13,17 +13,15 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 # Import package to work with Django
 import django_heroku
 
-# import dotenv, which contains environment vars like our SECRET_KEY
+# import python-dotenv to handle our environment variables
 from dotenv import load_dotenv
+load_dotenv()
 
+# import dotenv, which contains environment vars like our SECRET_KEY
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 
 #Security settings for deployment
@@ -32,7 +30,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # For this project, I decided to make my secret keys environment variables
 # on my local machine, and configuration variables within Heroku.
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'reference-project-secret-key')
+SECRET_KEY = os.getenv('DJANGO_REFERENCE_PROJ_SECRET_KEY', 'reference-project-secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -78,8 +76,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-
 
 ROOT_URLCONF = 'django-ocr-backend.urls'
 
@@ -160,8 +156,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Like for my SECRET_KEY, I created environment variables for AWS keys
 # and created config vars for these values in Heroku.
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'ocr-backend-bucket'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {
