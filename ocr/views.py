@@ -42,3 +42,9 @@ class PostViews(ListAPIView):
         else:
             print('error', posts_serializer.errors)
             return Response(posts_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        return uploaded
+    
+    def delete(self, request, uploaded, format=None):
+        uploaded.posts_serializer.delete(save=True)
+        return Response(status=status.HTTP_204_NO_CONTENT)
