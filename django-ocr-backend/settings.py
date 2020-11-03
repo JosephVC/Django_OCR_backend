@@ -17,7 +17,6 @@ import django_heroku
 from dotenv import load_dotenv
 load_dotenv()
 
-# import dotenv, which contains environment vars like our SECRET_KEY
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -34,8 +33,8 @@ SECRET_KEY = os.getenv('DJANGO_REFERENCE_PROJ_SECRET_KEY', 'reference-project-se
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = 'False'
-ALLOWED_HOSTS = ['.herokuapp.com']
+DEBUG = 'True'
+ALLOWED_HOSTS = ['.herokuapp.com', 'localhost']
 CORS_ORIGIN_ALLOW_ALL = True
 CSRF_COOKIE_SECURE = 'True'
 SECURE_REFERRER_POLICY = 'origin'
