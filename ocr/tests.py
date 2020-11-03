@@ -1,14 +1,14 @@
 from django.test import TestCase
 
-from .models import Post
+from ocr.models import Post
 
-# Create your tests here.
+
 class OcrModelTest(TestCase):
     
     @classmethod
     def setUpTestData(cls):
         Post.objects.create(title='first file')
-        Post.objects.create(description='some description')
+        Post.objects.create(content='test content')
 
     def test_title_content(self):
         ocr = Post.objects.get(id=1)
@@ -17,5 +17,6 @@ class OcrModelTest(TestCase):
 
     def test_desription_content(self):
         ocr = Post.objects.get(id=2)
-        expected_object_name = f'{ocr.description}'
-        self.assertEquals(expected_object_name, 'some description')
+        expected_object_name = f'{ocr.content}'
+        self.assertEquals(expected_object_name, 'test content')
+
