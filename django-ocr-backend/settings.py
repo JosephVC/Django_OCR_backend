@@ -35,15 +35,21 @@ SECRET_KEY = os.getenv('DJANGO_REFERENCE_PROJ_SECRET_KEY', 'reference-project-se
 
 DEBUG = 'True'
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost']
-CORS_ORIGIN_ALLOW_ALL = True
-CSRF_COOKIE_SECURE = 'True'
-SECURE_REFERRER_POLICY = 'origin'
-SECURE_SSL_REDIRECT = False
-SESSION_COOKIE_SECURE = True
+# CORS_ORIGIN_ALLOW_ALL = True
+# CSRF_COOKIE_SECURE = 'True'
+# SECURE_REFERRER_POLICY = 'origin'
+# SECURE_SSL_REDIRECT = False
+# SESSION_COOKIE_SECURE = True
+
+SESSION_COOKIE_DOMAIN = "localhost"
+
+# needed by django-allauth
+SITE_ID = 1
 
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,9 +62,20 @@ INSTALLED_APPS = [
     'ocr',
     'whitenoise',
     'storages',
-    'social_django',
+    
+    # django-allauth apps
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    # social providers for django-allauth
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.twitter',
 
 ]
+
+
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
@@ -82,20 +99,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-AUTHENTICATION_BACKENDS = (
-    'social_core.backends.google.GoogleOAuth2',
-    'social_core.backends.facebook.FacebookOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
-)
 
-for key in ['GOOGLE_OAUTH2_KEY',
-            'GOOGLE_OAUTH2_SECRET',
-            'FACEBOOK_KEY',
-            'FACEBOOK_SECRET']:
-    exec("SOCIAL_AUTH_{key} = os.environ.get('{key}', '')".format(key=key))
-
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
-SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['email', 'profile']
 
 ROOT_URLCONF = 'django-ocr-backend.urls'
 

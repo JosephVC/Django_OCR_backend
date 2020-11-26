@@ -1,7 +1,9 @@
-from django.urls import path
+from django.urls import path, include
 
-from .views import PostViews 
+from . import views
+from .views import PostViews
 
 urlpatterns = [
-    path('', PostViews.as_view(), name='file-upload')
+    path('', PostViews.as_view(), name='file-upload'),
+   
 ]

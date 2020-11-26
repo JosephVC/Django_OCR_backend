@@ -19,8 +19,7 @@ pytesseract = "^0.3.6"
 ocrmypdf = "^11.3.2"
 ghostscript = "^0.6"
 boto3 = "^1.16.10"
-social-auth-core = "^3.3.3"
-social-auth-app-django = "^4.0.0"
+django-allauth = "^0.44.0"
 
 [tool.poetry.dev-dependencies]
 

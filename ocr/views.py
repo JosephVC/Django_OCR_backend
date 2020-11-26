@@ -1,11 +1,17 @@
 # Python and Django-specific imports 
-from django.http import FileResponse, HttpResponse
+from django.http import FileResponse, HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout as log_out
+from django.conf import settings
+import json
 import os
 from rest_framework.generics import ListAPIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from rest_framework import status
 from subprocess import Popen, PIPE, STDOUT
+from urllib.parse import urlencode
 
 # Import ocrmypdf, which does the heavy lifting regarding OCR
 # Note that ocrmypdf is installed in a virtual environment with Poetry
@@ -48,3 +54,4 @@ class PostViews(ListAPIView):
     def delete(self, request, uploaded, format=None):
         uploaded.posts_serializer.delete(save=True)
         return Response(status=status.HTTP_204_NO_CONTENT)
+
