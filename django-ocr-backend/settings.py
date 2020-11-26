@@ -99,38 +99,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# Social authentication settings
- 
-# AUTHENTICATION_BACKENDS = (
-#     # 'django-react-ocr.auth0backends.Auth0',
-#     'social_core.backends.open_id.OpenIdAuth',
-#     'social_core.backends.google.GoogleOpenId',
-#     'social_core.backends.google.GoogleOAuth2',
-#     'social_core.backends.google.GoogleOAuth',
-#     'social_core.backends.twitter.TwitterOAuth'
-#     'django.contrib.auth.backends.ModelBackend',
-# )
 
-# SOCIAL_AUTH_TRAILING_SLASH = False
-# SOCIAL_AUTH_AUTH0_DOMAIN = 'dev-7h4u-881.us.auth0.com'
-# SOCIAL_AUTH_AUTH0_KEY = 'nz4ZS_IkxPd87vg2RdyPJoEgZ_7FIpLsBgxyBmEX-J1rpIia4AoobcpH3c4NZZIm'
-
-# SOCIAL_AUTH_AUTH0_SCOPE = [
-#     'openid',
-#     'profile',
-#     'email'
-# ]
-
-# for key in ['GOOGLE_OAUTH2_KEY',
-#             'GOOGLE_OAUTH2_SECRET',
-#             'FACEBOOK_KEY',
-#            ]:
-#     exec("SOCIAL_AUTH_{key} = os.environ.get('{key}', '')".format(key=key))
-
-# SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['email', 'profile']
-
-# LOGIN_URL = '/login/auth0'
-# LOGIN_REDIRECT_URL = '/dashboard'
 
 ROOT_URLCONF = 'django-ocr-backend.urls'
 
