@@ -8,6 +8,7 @@ import json
 import os
 from rest_framework.generics import ListAPIView
 from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework import status
 from subprocess import Popen, PIPE, STDOUT
@@ -24,9 +25,10 @@ from .models import Post
 
 class PostViews(ListAPIView):
     serializer_class = FileSerializer
-    queryset = Post.objects.all()
-
+    permission_classes = [IsAuthenticatedOrReadOnly]
     parser_classes = (MultiPartParser, FormParser)
+
+    queryset = Post.objects.all() 
 
     def get(self, request, *args, **kwargs):
         posts = Post.objects.all()
