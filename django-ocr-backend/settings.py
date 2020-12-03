@@ -52,31 +52,42 @@ ALLOWED_HOSTS = ['.herokuapp.com', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.sites',
+    # 'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # needed to work with Django REST
     'rest_framework',
-    'rest_framework.authtoken',
+    'rest_framework_simplejwt.token_blacklist',
+    # 'rest_framework.authtoken',
+    
+    # needed for CORS handling
     'corsheaders',
+
+    # apps created by user
     'ocr',
     'users',
-    'whitenoise',
-    'storages',
-    'rest_framework_simplejwt.token_blacklist',
-        
-    # django-allauth apps
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
 
-    # social providers for django-allauth
-    'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.twitter',
+    # needed for Heroku deployment
+    'whitenoise',
+
+    # needed for working with AWS
+    'storages',
+
+        
+    # # django-allauth apps
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+
+    # # social providers for django-allauth
+    # 'allauth.socialaccount.providers.github',
+    # 'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.twitter',
 
 ]
 

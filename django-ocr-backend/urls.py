@@ -8,8 +8,9 @@ from rest_framework_simplejwt.views import (
 )
 
 urlpatterns = [
+    path('', include('ocr.urls', namespace='ocr')),
     path('admin/', admin.site.urls),
-    path('account/', include('allauth.urls')),
+    # path('account/', include('allauth.urls')),
     path('api/', include('ocr.urls', namespace='ocr_api')),
     path('api/user/', include('users.urls', namespace='users')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
