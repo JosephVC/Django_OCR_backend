@@ -38,7 +38,7 @@ SECRET_KEY = os.getenv('DJANGO_REFERENCE_PROJ_SECRET_KEY', 'reference-project-se
 
 DEBUG = True
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost']
-# CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = True
 # CSRF_COOKIE_SECURE = True
 # SECURE_REFERRER_POLICY = 'origin'
 # SECURE_SSL_REDIRECT = False
