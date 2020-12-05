@@ -14,7 +14,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import django_heroku
 
 # import python-dotenv to handle our environment variables
+from datetime import timedelta
+
 from dotenv import load_dotenv
+
 load_dotenv()
 
 import os
@@ -33,58 +36,69 @@ SECRET_KEY = os.getenv('DJANGO_REFERENCE_PROJ_SECRET_KEY', 'reference-project-se
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = 'True'
+DEBUG = True
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost']
-# CORS_ORIGIN_ALLOW_ALL = True
-# CSRF_COOKIE_SECURE = 'True'
+CORS_ORIGIN_ALLOW_ALL = True
+# CSRF_COOKIE_SECURE = True
 # SECURE_REFERRER_POLICY = 'origin'
 # SECURE_SSL_REDIRECT = False
 # SESSION_COOKIE_SECURE = True
 
-SESSION_COOKIE_DOMAIN = "localhost"
+# SESSION_COOKIE_DOMAIN = 'localhost'
 
-# needed by django-allauth
-SITE_ID = 1
+# # needed by django-allauth
+# SITE_ID = 1
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.sites',
+    # 'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'rest_framework.authtoken',
-    'corsheaders',
-    'ocr',
-    'whitenoise',
-    'storages',
-    
-    # django-allauth apps
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
 
-    # social providers for django-allauth
-    'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.twitter',
+    # needed to work with Django REST
+    'rest_framework',
+    'rest_framework_simplejwt.token_blacklist',
+    # 'rest_framework.authtoken',
+    
+    # needed for CORS handling
+    'corsheaders',
+
+    # apps created by user
+    'ocr',
+    'users',
+
+    # needed for Heroku deployment
+    'whitenoise',
+
+    # needed for working with AWS
+    'storages',
+
+        
+    # # django-allauth apps
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+
+    # # social providers for django-allauth
+    # 'allauth.socialaccount.providers.github',
+    # 'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.twitter',
 
 ]
 
-
-
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
 
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-    ),
+     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )  
 }
 
 MIDDLEWARE = [
@@ -98,8 +112,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-
 
 ROOT_URLCONF = 'django-ocr-backend.urls'
 
@@ -201,3 +213,21 @@ AWS_DEFAULT_ACL = None
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
+
+# Custom user model
+AUTH_USER_MODEL = 'users.NewUser'
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=10),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'ALGORITHM': 'HS256',
+    'SIGNING_KEY': SECRET_KEY,
+    'VERIFYING_KEY': None,
+    'AUTH_HEADER_TYPES': ('JWT',),
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'user_id',
+    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+    'TOKEN_TYPE_CLAIM': 'token_type',
+}

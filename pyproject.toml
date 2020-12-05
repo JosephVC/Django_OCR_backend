@@ -19,7 +19,7 @@ pytesseract = "^0.3.6"
 ocrmypdf = "^11.3.2"
 ghostscript = "^0.6"
 boto3 = "^1.16.10"
-django-allauth = "^0.44.0"
+djangorestframework-simplejwt = "^4.6.0"
 
 [tool.poetry.dev-dependencies]
 
