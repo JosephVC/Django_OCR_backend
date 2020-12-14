@@ -6,12 +6,10 @@ from django.conf import settings
 import json
 import os
 from rest_framework import filters, generics, status, viewsets 
-
 from rest_framework.parsers import MultiPartParser, FormParser
-
 from rest_framework.permissions import ( SAFE_METHODS, IsAuthenticated, 
     IsAuthenticatedOrReadOnly, BasePermission, IsAdminUser, 
-    DjangoModelPermissions) 
+    DjangoModelPermissions ) 
 from rest_framework.response import Response
 
 #import needed for working with files
@@ -24,19 +22,9 @@ from urllib.parse import urlencode
 import ocrmypdf
 
 # Files local to the project
-from .serializers import FileSerializer
-from .models import Post
+from ocr.serializers import FileSerializer
+from ocr.models import Post
 
-
-
-# Post Search
-
-# class PostListDetailfilter(generics.ListAPIView):
-
-#     queryset = Post.objects.all()
-#     serializer_class = PostSerializer
-#     filter_backends = [filters.SearchFilter]
-#     search_fields = ['^slug']
 
 class PostUserWritePermission(BasePermission):
     message = 'Editing posts is restricted to the author only.'
@@ -48,62 +36,11 @@ class PostUserWritePermission(BasePermission):
 
         return obj.author == request.user 
 
-# Note: everything seems to run fine without PostList, so I'll leave it out for now
-
-# class PostList(viewsets.ModelViewSet):
-#     permission_classes = [PostUserWritePermission]
-#     serializer_class = FileSerializer
-#     queryset = Post.objects.all()
-
-#     def get_object(self, queryset=None, **kwargs):
-#         item = self.kwargs.get('pk')
-#         return get_object_or_404(Post, slug=item)
-
-#     # define custom queryset
-#     def get_queryset(self):
-#         return Post.objects.all()
-
-# class PostList(viewsets.ViewSet):
-#     permission_classes = [IsAuthenticated]
-#     queryset = Post.objects.all()
-
-#     def list(self, request):
-#         serializer_class = FileSerializer(self.queryset, many=True)
-#         return Response(serializer_class.data)
-
-#     def retrieve(self, request, pk=None):
-#         post = get_object_or_404(self.queryset, pk=pk)
-#         serializer_class = FileSerializer(post)
-#         return Response(serializer_class.data)
-
-class PostDetail(generics.RetrieveAPIView, PostUserWritePermission):
-    permission_classes = [IsAuthenticated]
-    queryset = Post.objects.all()
-    serializer_class = FileSerializer
-
-    def get_object(self, queryset=None, **kwargs):
-        item =  self.kwargs.get('pk')
-        return get_object_or_404(Post, slug=item)
-
 class PostViews(generics.ListAPIView):
+    # permission_classes = [IsAuthenticatedOrReadOnly]
     serializer_class = FileSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
-    # parser_classes = (MultiPartParser, FormParser)
-
     queryset = Post.objects.all()
-
-    def get_object(self, queryset=None, **kwargs):
-        item = self.kwargs.get('pk')
-        return get_object_or_404(Post, slug=item) 
-
-    def get_queryset(self):
-        return Post.objects.all()
-
-    # def get(self, request, *args, **kwargs):
-    #     posts = Post.objects.all()
-    #     serializer = FileSerializer(posts, many=True)
-    #     return Response(serializer.data)
-
+    
     def post(self, request, *args, **kwargs):
         
         posts_serializer = FileSerializer(data=request.data)
@@ -126,17 +63,42 @@ class PostViews(generics.ListAPIView):
         uploaded.posts_serializer.delete(save=True)
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-# class AdminPostDetail(generics.RetrieveAPIView):
-#     permission_classes = [permissions.IsAuthenticated]
-#     queryset = Post.objects.all()
-#     serializer_class = PostSerializer
 
-# class EditPost(generics.UpdateAPIView):
-#     permission_classes = [permissions.IsAuthenticated]
-#     serializer_class = PostSerializer
-#     queryset = Post.objects.all()
+# The view showing us the details of individual posts
+class PostDetail(generics.RetrieveAPIView):
+    serializer_class = FileSerializer
 
-# class DeletePost(generics.RetrieveDestroyAPIView):
-#     permission_classes = [permissions.IsAuthenticated]
-#     serializer_class = PostSerializer
-#     queryset = Post.objects.all()
+    def get_queryset(self):
+        slug = self.request.query_params.get('slug', None)
+        print(slug)
+        return Post.objects.filter(slug=slug)
+
+
+class PostListDetailfilter(generics.ListAPIView):
+    queryset = Post.objects.all()
+    serializer_class = FileSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['^slug']
+
+# Post Admin
+
+class CreatePost(generics.CreateAPIView):
+    # permission_classes = [IsAuthenticated]
+    serializer_class = FileSerializer
+    queryset = Post.objects.all()
+
+
+class AdminPostDetail(generics.RetrieveAPIView):
+    # permission_classes = [IsAuthenticated]
+    queryset = Post.objects.all()
+    serializer_class = FileSerializer
+
+class EditPost(generics.UpdateAPIView):
+    # permission_classes = [IsAuthenticated]
+    serializer_class = FileSerializer
+    queryset = Post.objects.all()
+
+class DeletePost(generics.RetrieveDestroyAPIView):
+    # permission_classes = [IsAuthenticated]
+    serializer_class = FileSerializer
+    queryset = Post.objects.all()
