@@ -5,7 +5,7 @@ from django.contrib.auth import logout as log_out
 from django.conf import settings
 import json
 import os
-from rest_framework import filters, generics, status, viewsets 
+from rest_framework import filters, generics, status, viewsets
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.permissions import ( SAFE_METHODS, IsAuthenticated, 
     IsAuthenticatedOrReadOnly, BasePermission, IsAdminUser, 
@@ -23,27 +23,71 @@ import ocrmypdf
 
 # Files local to the project
 from ocr.serializers import FileSerializer
-from ocr.models import Post
+from .models import Post
 
 
-class PostUserWritePermission(BasePermission):
-    message = 'Editing posts is restricted to the author only.'
-
-    def has_object_permission(self, request, view, obj):
-
-        if request.method in SAFE_METHODS:
-            return True
-
-        return obj.author == request.user 
-
-class PostViews(generics.ListAPIView):
-    # permission_classes = [IsAuthenticatedOrReadOnly]
+class PostList(generics.ListAPIView):
+    permission_classes = [IsAuthenticated]
     serializer_class = FileSerializer
     queryset = Post.objects.all()
+
+
+# class PostViews(generics.ListAPIView):
+#     # permission_classes = [IsAuthenticatedOrReadOnly]
+#     serializer_class = FileSerializer
+#     queryset = Post.objects.all()
+    
+#     def post(self, request, *args, **kwargs):
+        
+#         posts_serializer = FileSerializer(data=request.data)
+#         if posts_serializer.is_valid():
+                     
+#             # The below removes the necessity to hard-code the path to the input file.
+#             uploaded = posts_serializer.save()  
+            
+#             process = Popen(['ocrmypdf', uploaded.file.path, 'output.pdf'])
+
+#             return Response(posts_serializer.data, status=status.HTTP_201_CREATED)
+
+#         else:
+#             print('error', posts_serializer.errors)
+#             return Response(posts_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+#         return uploaded
+    
+#     def delete(self, request, uploaded, format=None):
+#         uploaded.posts_serializer.delete(save=True)
+#         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+# The view showing us the details of individual posts
+class PostDetail(generics.RetrieveAPIView):
+
+    serializer_class = FileSerializer
+
+    def get_object(self, queryset=None, **kwargs):
+        item = self.kwargs.get('pk')
+        return get_object_or_404(Post, slug=item)
+
+# This will allow us to search
+
+class PostListDetailfilter(generics.ListAPIView):
+
+    queryset = Post.objects.all()
+    serializer_class = FileSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['^slug']
+
+# Post Admin
+
+class CreatePost(generics.CreateAPIView):
+    permission_classes = [IsAuthenticated]
+    parser_classes = [MultiPartParser, FormParser]
     
     def post(self, request, *args, **kwargs):
-        
+        print(request.data)
         posts_serializer = FileSerializer(data=request.data)
+        
         if posts_serializer.is_valid():
                      
             # The below removes the necessity to hard-code the path to the input file.
@@ -58,34 +102,6 @@ class PostViews(generics.ListAPIView):
             return Response(posts_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
         return uploaded
-    
-    def delete(self, request, uploaded, format=None):
-        uploaded.posts_serializer.delete(save=True)
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-# The view showing us the details of individual posts
-class PostDetail(generics.RetrieveAPIView):
-    serializer_class = FileSerializer
-
-    def get_queryset(self):
-        slug = self.request.query_params.get('slug', None)
-        print(slug)
-        return Post.objects.filter(slug=slug)
-
-
-class PostListDetailfilter(generics.ListAPIView):
-    queryset = Post.objects.all()
-    serializer_class = FileSerializer
-    filter_backends = [filters.SearchFilter]
-    search_fields = ['^slug']
-
-# Post Admin
-
-class CreatePost(generics.CreateAPIView):
-    # permission_classes = [IsAuthenticated]
-    serializer_class = FileSerializer
-    queryset = Post.objects.all()
 
 
 class AdminPostDetail(generics.RetrieveAPIView):
