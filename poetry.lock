@@ -1,21 +1,21 @@
 [[package]]
-name = "asgiref"
-version = "3.3.0"
-description = "ASGI specs, helper code, and adapters"
 category = "main"
+description = "ASGI specs, helper code, and adapters"
+name = "asgiref"
 optional = false
 python-versions = ">=3.5"
+version = "3.3.0"
 
 [package.extras]
 tests = ["pytest", "pytest-asyncio"]
 
 [[package]]
-name = "boto3"
-version = "1.16.10"
-description = "The AWS SDK for Python"
 category = "main"
+description = "The AWS SDK for Python"
+name = "boto3"
 optional = false
 python-versions = "*"
+version = "1.16.10"
 
 [package.dependencies]
 botocore = ">=1.19.10,<1.20.0"
@@ -23,17 +23,20 @@ jmespath = ">=0.7.1,<1.0.0"
 s3transfer = ">=0.3.0,<0.4.0"
 
 [[package]]
-name = "botocore"
-version = "1.19.10"
-description = "Low-level, data-driven core of boto 3."
 category = "main"
+description = "Low-level, data-driven core of boto 3."
+name = "botocore"
 optional = false
 python-versions = "*"
+version = "1.19.10"
 
 [package.dependencies]
 jmespath = ">=0.7.1,<1.0.0"
 python-dateutil = ">=2.1,<3.0.0"
-urllib3 = {version = ">=1.25.4,<1.26", markers = "python_version != \"3.4\""}
+
+[package.dependencies.urllib3]
+python = "<3.4.0 || >=3.5.0"
+version = ">=1.25.4,<1.26"
 
 [[package]]
 name = "certifi"
@@ -48,6 +51,7 @@ name = "cffi"
 version = "1.14.3"
 description = "Foreign Function Interface for Python calling C code."
 category = "main"
+name = "cffi"
 optional = false
 python-versions = "*"
 
@@ -55,20 +59,21 @@ python-versions = "*"
 pycparser = "*"
 
 [[package]]
-name = "chardet"
-version = "3.0.4"
-description = "Universal encoding detector for Python 2 and 3"
 category = "main"
+description = "Universal encoding detector for Python 2 and 3"
+marker = "python_version > \"3.0\""
+name = "chardet"
 optional = false
 python-versions = "*"
+version = "3.0.4"
 
 [[package]]
-name = "coloredlogs"
-version = "14.0"
-description = "Colored terminal output for Python's logging module"
 category = "main"
+description = "Colored terminal output for Python's logging module"
+name = "coloredlogs"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+version = "14.0"
 
 [package.dependencies]
 humanfriendly = ">=7.1"
@@ -77,23 +82,23 @@ humanfriendly = ">=7.1"
 cron = ["capturer (>=2.4)"]
 
 [[package]]
-name = "cryptography"
-version = "3.2.1"
-description = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
 category = "main"
+description = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
+name = "cryptography"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
+version = "3.2.1"
 
 [package.dependencies]
 cffi = ">=1.8,<1.11.3 || >1.11.3"
 six = ">=1.4.1"
 
 [package.extras]
-docs = ["sphinx (>=1.6.5,!=1.8.0,!=3.1.0,!=3.1.1)", "sphinx-rtd-theme"]
+docs = ["sphinx (>=1.6.5,<1.8.0 || >1.8.0,<3.1.0 || >3.1.0,<3.1.1 || >3.1.1)", "sphinx-rtd-theme"]
 docstest = ["doc8", "pyenchant (>=1.6.11)", "twine (>=1.12.0)", "sphinxcontrib-spelling (>=4.0.1)"]
 pep8test = ["black", "flake8", "flake8-import-order", "pep8-naming"]
 ssh = ["bcrypt (>=3.1.5)"]
-test = ["pytest (>=3.6.0,!=3.9.0,!=3.9.1,!=3.9.2)", "pretend", "iso8601", "pytz", "hypothesis (>=1.11.4,!=3.79.2)"]
+test = ["pytest (>=3.6.0,<3.9.0 || >3.9.0,<3.9.1 || >3.9.1,<3.9.2 || >3.9.2)", "pretend", "iso8601", "pytz", "hypothesis (>=1.11.4,<3.79.2 || >3.79.2)"]
 
 [[package]]
 name = "defusedxml"
@@ -106,12 +111,15 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 [[package]]
 name = "dj-database-url"
 version = "0.5.0"
-description = "Use Database URLs in your Django Application."
 category = "main"
+description = "Use Database URLs in your Django Application."
+name = "dj-database-url"
 optional = false
 python-versions = "*"
+version = "0.5.0"
 
 [[package]]
+
 name = "django"
 version = "3.1.5"
 description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
@@ -152,12 +160,12 @@ python-versions = ">=3.5"
 Django = ">=2.2"
 
 [[package]]
-name = "django-heroku"
-version = "0.3.1"
-description = "This is a Django library for Heroku apps."
 category = "main"
+description = "This is a Django library for Heroku apps."
+name = "django-heroku"
 optional = false
 python-versions = "*"
+version = "0.3.1"
 
 [package.dependencies]
 dj-database-url = ">=0.5.0"
@@ -197,6 +205,7 @@ name = "django-storages"
 version = "1.10.1"
 description = "Support for many storage backends in Django"
 category = "main"
+name = "django-storages"
 optional = false
 python-versions = ">=3.5"
 
@@ -212,23 +221,23 @@ libcloud = ["apache-libcloud"]
 sftp = ["paramiko"]
 
 [[package]]
-name = "djangorestframework"
-version = "3.12.1"
-description = "Web APIs for Django, made easy."
 category = "main"
+description = "Web APIs for Django, made easy."
+name = "djangorestframework"
 optional = false
 python-versions = ">=3.5"
+version = "3.12.1"
 
 [package.dependencies]
 django = ">=2.2"
 
 [[package]]
-name = "djangorestframework-simplejwt"
-version = "4.6.0"
-description = "A minimal JSON Web Token authentication plugin for Django REST Framework"
 category = "main"
+description = "A minimal JSON Web Token authentication plugin for Django REST Framework"
+name = "djangorestframework-simplejwt"
 optional = false
 python-versions = ">=3.7"
+version = "4.6.0"
 
 [package.dependencies]
 django = "*"
@@ -236,10 +245,10 @@ djangorestframework = "*"
 pyjwt = "*"
 
 [package.extras]
-dev = ["bumpversion (>=0.5.3,<1)", "pytest-watch", "wheel", "twine", "ipython", "cryptography", "pytest-cov", "pytest-django", "pytest-xdist", "pytest", "tox", "flake8", "pep8", "isort", "Sphinx (>=1.6.5,<2)", "sphinx-rtd-theme (>=0.1.9)", "python-jose (==3.0.0)"]
+dev = ["bumpversion (>=0.5.3,<1)", "pytest-watch", "wheel", "twine", "ipython", "cryptography", "pytest-cov", "pytest-django", "pytest-xdist", "pytest", "tox", "flake8", "pep8", "isort", "Sphinx (>=1.6.5,<2)", "sphinx-rtd-theme (>=0.1.9)", "python-jose (3.0.0)"]
 doc = ["Sphinx (>=1.6.5,<2)", "sphinx-rtd-theme (>=0.1.9)"]
 lint = ["flake8", "pep8", "isort"]
-python-jose = ["python-jose (==3.0.0)"]
+python-jose = ["python-jose (3.0.0)"]
 test = ["cryptography", "pytest-cov", "pytest-django", "pytest-xdist", "pytest", "tox"]
 
 [[package]]
@@ -263,13 +272,19 @@ category = "main"
 optional = false
 python-versions = "*"
 
+[package.dependencies]
+setuptools = "*"
+
 [[package]]
-name = "gunicorn"
-version = "20.0.4"
-description = "WSGI HTTP Server for UNIX"
 category = "main"
+description = "WSGI HTTP Server for UNIX"
+name = "gunicorn"
 optional = false
 python-versions = ">=3.4"
+version = "20.0.4"
+
+[package.dependencies]
+setuptools = ">=3.0"
 
 [package.extras]
 eventlet = ["eventlet (>=0.9.7)"]
@@ -278,15 +293,15 @@ setproctitle = ["setproctitle"]
 tornado = ["tornado (>=0.2)"]
 
 [[package]]
-name = "humanfriendly"
-version = "8.2"
-description = "Human friendly output for text interfaces using Python"
 category = "main"
+description = "Human friendly output for text interfaces using Python"
+name = "humanfriendly"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+version = "8.2"
 
 [package.dependencies]
-pyreadline = {version = "*", markers = "sys_platform == \"win32\""}
+pyreadline = "*"
 
 [[package]]
 name = "idna"
@@ -305,19 +320,19 @@ optional = false
 python-versions = "*"
 
 [package.dependencies]
-pikepdf = "*"
 Pillow = "*"
+pikepdf = "*"
 
 [package.extras]
 gui = ["tkinter"]
 
 [[package]]
-name = "jmespath"
-version = "0.10.0"
-description = "JSON Matching Expressions"
 category = "main"
+description = "JSON Matching Expressions"
+name = "jmespath"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+version = "0.10.0"
 
 [[package]]
 name = "lxml"
@@ -351,97 +366,105 @@ name = "ocrmypdf"
 version = "11.3.2"
 description = "OCRmyPDF adds an OCR text layer to scanned PDF files, allowing them to be searched"
 category = "main"
+name = "ocrmypdf"
 optional = false
 python-versions = ">= 3.6"
 
 [package.dependencies]
+Pillow = ">=7.0.0"
 cffi = ">=1.9.1"
 coloredlogs = ">=14.0"
 img2pdf = ">=0.3.0,<0.5"
 "pdfminer.six" = ">=20191110,<20200720 || >20200720,<=20201018"
-pikepdf = [
-    {version = ">=1.14.0,<3", markers = "python_version < \"3.9\""},
-    {version = ">=2.0.0", markers = "python_version >= \"3.9\""},
-]
-Pillow = ">=7.0.0"
 pluggy = ">=0.13.0,<1.0"
 reportlab = ">=3.3.0"
 tqdm = ">=4"
 
+[[package.dependencies.pikepdf]]
+python = "<3.9"
+version = ">=1.14.0,<3"
+
+[[package.dependencies.pikepdf]]
+python = ">=3.9"
+version = ">=2.0.0"
+
 [[package]]
-name = "pdfminer.six"
-version = "20201018"
-description = "PDF parser and analyzer"
 category = "main"
+description = "PDF parser and analyzer"
+name = "pdfminer.six"
 optional = false
 python-versions = ">=3.4"
+version = "20201018"
 
 [package.dependencies]
-chardet = {version = "*", markers = "python_version > \"3.0\""}
 cryptography = "*"
 sortedcontainers = "*"
+
+[package.dependencies.chardet]
+python = ">=3.1"
+version = "*"
 
 [package.extras]
 dev = ["nose", "tox"]
 docs = ["sphinx", "sphinx-argparse"]
 
 [[package]]
-name = "pikepdf"
-version = "2.0.0"
-description = "Read and write PDFs with Python, powered by qpdf"
 category = "main"
+description = "Read and write PDFs with Python, powered by qpdf"
+name = "pikepdf"
 optional = false
 python-versions = ">=3.6"
+version = "2.0.0"
 
 [package.dependencies]
-lxml = ">=4.0"
 Pillow = ">=6"
+lxml = ">=4.0"
 
 [package.extras]
 docs = ["ipython", "matplotlib", "pybind11", "setuptools-scm", "sphinx (>=1.4)", "sphinx-rtd-theme"]
 
 [[package]]
-name = "pillow"
-version = "8.0.1"
-description = "Python Imaging Library (Fork)"
 category = "main"
+description = "Python Imaging Library (Fork)"
+name = "pillow"
 optional = false
 python-versions = ">=3.6"
+version = "8.0.1"
 
 [[package]]
-name = "pluggy"
-version = "0.13.1"
-description = "plugin and hook calling mechanisms for python"
 category = "main"
+description = "plugin and hook calling mechanisms for python"
+name = "pluggy"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "0.13.1"
 
 [package.extras]
 dev = ["pre-commit", "tox"]
 
 [[package]]
-name = "psycopg2"
-version = "2.8.6"
-description = "psycopg2 - Python-PostgreSQL Database Adapter"
 category = "main"
+description = "psycopg2 - Python-PostgreSQL Database Adapter"
+name = "psycopg2"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
+version = "2.8.6"
 
 [[package]]
-name = "pycparser"
-version = "2.20"
-description = "C parser in Python"
 category = "main"
+description = "C parser in Python"
+name = "pycparser"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "2.20"
 
 [[package]]
-name = "pyjwt"
-version = "1.7.1"
-description = "JSON Web Token implementation in Python"
 category = "main"
+description = "JSON Web Token implementation in Python"
+name = "pyjwt"
 optional = false
 python-versions = "*"
+version = "1.7.1"
 
 [package.extras]
 crypto = ["cryptography (>=1.4)"]
@@ -449,42 +472,43 @@ flake8 = ["flake8", "flake8-import-order", "pep8-naming"]
 test = ["pytest (>=4.0.1,<5.0.0)", "pytest-cov (>=2.6.0,<3.0.0)", "pytest-runner (>=4.2,<5.0.0)"]
 
 [[package]]
-name = "pyreadline"
-version = "2.1"
-description = "A python implmementation of GNU readline."
 category = "main"
+description = "A python implmementation of GNU readline."
+marker = "sys_platform == \"win32\""
+name = "pyreadline"
 optional = false
 python-versions = "*"
+version = "2.1"
 
 [[package]]
-name = "pytesseract"
-version = "0.3.6"
-description = "Python-tesseract is a python wrapper for Google's Tesseract-OCR"
 category = "main"
+description = "Python-tesseract is a python wrapper for Google's Tesseract-OCR"
+name = "pytesseract"
 optional = false
 python-versions = "*"
+version = "0.3.6"
 
 [package.dependencies]
 Pillow = "*"
 
 [[package]]
-name = "python-dateutil"
-version = "2.8.1"
-description = "Extensions to the standard Python datetime module"
 category = "main"
+description = "Extensions to the standard Python datetime module"
+name = "python-dateutil"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+version = "2.8.1"
 
 [package.dependencies]
 six = ">=1.5"
 
 [[package]]
-name = "python-dotenv"
-version = "0.15.0"
-description = "Add .env support to your django/flask apps in development and deployments"
 category = "main"
+description = "Add .env support to your django/flask apps in development and deployments"
+name = "python-dotenv"
 optional = false
 python-versions = "*"
+version = "0.15.0"
 
 [package.extras]
 cli = ["click (>=5.0)"]
@@ -513,12 +537,12 @@ optional = false
 python-versions = "*"
 
 [[package]]
-name = "reportlab"
-version = "3.5.55"
-description = "The Reportlab Toolkit"
 category = "main"
+description = "The Reportlab Toolkit"
+name = "reportlab"
 optional = false
 python-versions = "*"
+version = "3.5.55"
 
 [package.dependencies]
 pillow = ">=4.0.0"
@@ -568,12 +592,12 @@ python-versions = "*"
 botocore = ">=1.12.36,<2.0a.0"
 
 [[package]]
-name = "six"
-version = "1.15.0"
-description = "Python 2 and 3 compatibility utilities"
 category = "main"
+description = "Python 2 and 3 compatibility utilities"
+name = "six"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+version = "1.15.0"
 
 [[package]]
 name = "social-auth-app-django"
@@ -622,52 +646,54 @@ optional = false
 python-versions = "*"
 
 [[package]]
-name = "sqlparse"
-version = "0.4.1"
-description = "A non-validating SQL parser."
 category = "main"
+description = "A non-validating SQL parser."
+name = "sqlparse"
 optional = false
 python-versions = ">=3.5"
+version = "0.4.1"
 
 [[package]]
-name = "tqdm"
-version = "4.51.0"
-description = "Fast, Extensible Progress Meter"
 category = "main"
+description = "Fast, Extensible Progress Meter"
+name = "tqdm"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*"
+version = "4.51.0"
 
 [package.extras]
 dev = ["py-make (>=0.1.0)", "twine", "argopt", "pydoc-markdown"]
 
 [[package]]
-name = "urllib3"
-version = "1.25.11"
-description = "HTTP library with thread-safe connection pooling, file post, and more."
 category = "main"
+description = "HTTP library with thread-safe connection pooling, file post, and more."
+marker = "python_version != \"3.4\""
+name = "urllib3"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
+version = "1.25.11"
 
 [package.extras]
 brotli = ["brotlipy (>=0.6.0)"]
 secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "ipaddress"]
-socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
+socks = ["PySocks (>=1.5.6,<1.5.7 || >1.5.7,<2.0)"]
 
 [[package]]
-name = "whitenoise"
-version = "5.2.0"
-description = "Radically simplified static file serving for WSGI applications"
 category = "main"
+description = "Radically simplified static file serving for WSGI applications"
+name = "whitenoise"
 optional = false
 python-versions = ">=3.5, <4"
+version = "5.2.0"
 
 [package.extras]
 brotli = ["brotli"]
 
 [metadata]
-lock-version = "1.1"
+lock-version = "1.0"
 python-versions = "^3.8"
 content-hash = "3b3d1103f8260c2093b9f36151dabe9b7fddc4ba0cb86a6debe1e475d5588e95"
+
 
 [metadata.files]
 asgiref = [
@@ -826,6 +852,7 @@ jmespath = [
     {file = "jmespath-0.10.0.tar.gz", hash = "sha256:b85d0567b8666149a93172712e68920734333c0ce7e89b78b3e987f71e5ed4f9"},
 ]
 lxml = [
+
     {file = "lxml-4.6.2-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:a9d6bc8642e2c67db33f1247a77c53476f3a166e09067c0474facb045756087f"},
     {file = "lxml-4.6.2-cp27-cp27m-manylinux1_i686.whl", hash = "sha256:791394449e98243839fa822a637177dd42a95f4883ad3dec2a0ce6ac99fb0a9d"},
     {file = "lxml-4.6.2-cp27-cp27m-manylinux1_x86_64.whl", hash = "sha256:68a5d77e440df94011214b7db907ec8f19e439507a70c958f750c18d88f995d2"},
@@ -867,6 +894,7 @@ lxml = [
 oauthlib = [
     {file = "oauthlib-3.1.0-py2.py3-none-any.whl", hash = "sha256:df884cd6cbe20e32633f1db1072e9356f53638e4361bef4e8b03c9127c9328ea"},
     {file = "oauthlib-3.1.0.tar.gz", hash = "sha256:bee41cc35fcca6e988463cacc3bcb8a96224f470ca547e697b604cc697b2f889"},
+
 ]
 ocrmypdf = [
     {file = "ocrmypdf-11.3.2-py35-none-any.whl", hash = "sha256:f1bf28cb74eb8274fe1af5c8238c0977506cc3e4e94553465c0d19acf6ac2d22"},
