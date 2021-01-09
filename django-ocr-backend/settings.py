@@ -37,8 +37,13 @@ SECRET_KEY = os.getenv('DJANGO_REFERENCE_PROJ_SECRET_KEY', 'reference-project-se
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = True
-ALLOWED_HOSTS = ['.herokuapp.com', 'localhost']
-CORS_ORIGIN_ALLOW_ALL = True
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com', 'localhost']
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000"
+]
+
 # CSRF_COOKIE_SECURE = True
 # SECURE_REFERRER_POLICY = 'origin'
 # SECURE_SSL_REDIRECT = False
@@ -62,7 +67,6 @@ INSTALLED_APPS = [
 
     # needed to work with Django REST
     'rest_framework',
-    'rest_framework_simplejwt.token_blacklist',
     # 'rest_framework.authtoken',
     
     # needed for CORS handling
@@ -78,16 +82,10 @@ INSTALLED_APPS = [
     # needed for working with AWS
     'storages',
 
-        
-    # # django-allauth apps
-    # 'allauth',
-    # 'allauth.account',
-    # 'allauth.socialaccount',
-
-    # # social providers for django-allauth
-    # 'allauth.socialaccount.providers.github',
-    # 'allauth.socialaccount.providers.google',
-    # 'allauth.socialaccount.providers.twitter',
+    # oauth2
+    'oauth2_provider',
+    'social_django',
+    'rest_framework_social_oauth2',
 
 ]
 
@@ -97,8 +95,9 @@ REST_FRAMEWORK = {
     ],
 
      'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )  
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',  
+        'rest_framework_social_oauth2.authentication.SocialAuthentication',
+    ),
 }
 
 MIDDLEWARE = [
@@ -126,10 +125,14 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
+                
             ],
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'django-ocr-backend.wsgi.application'
 
@@ -217,17 +220,32 @@ django_heroku.settings(locals())
 # Custom user model
 AUTH_USER_MODEL = 'users.NewUser'
 
-SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=1),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=10),
-    'ROTATE_REFRESH_TOKENS': False,
-    'BLACKLIST_AFTER_ROTATION': True,
-    'ALGORITHM': 'HS256',
-    'SIGNING_KEY': SECRET_KEY,
-    'VERIFYING_KEY': None,
-    'AUTH_HEADER_TYPES': ('JWT',),
-    'USER_ID_FIELD': 'id',
-    'USER_ID_CLAIM': 'user_id',
-    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
-    'TOKEN_TYPE_CLAIM': 'token_type',
-}
+# Authentication with Google
+AUTHENTICATION_BACKENDS = (
+    # Others auth providers (e.g. Facebook, OpenId, etc)
+
+    # Google OAuth2
+    'social_core.backends.google.GoogleOAuth2',
+
+    # Twitter
+    'social_core.backends.twitter.TwitterOAuth',
+
+    # django-rest-framework-social-oauth2
+    'rest_framework_social_oauth2.backends.DjangoOAuth2',
+
+    # Django
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+# Google configuration
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '307917986361-nmabhdbesnokto3f0tnb200qk3qed7g3.apps.googleusercontent.com'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '56yxsD0CA3F_mWhAp4M2Xmf4'
+
+# Define SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE to get extra permissions from Google.
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
+    'https://www.googleapis.com/auth/userinfo.email',
+    'https://www.googleapis.com/auth/userinfo.profile',
+]
+
+SITE_ID=1
