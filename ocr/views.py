@@ -32,34 +32,6 @@ class PostList(generics.ListAPIView):
     queryset = Post.objects.all()
 
 
-# class PostViews(generics.ListAPIView):
-#     # permission_classes = [IsAuthenticatedOrReadOnly]
-#     serializer_class = FileSerializer
-#     queryset = Post.objects.all()
-    
-#     def post(self, request, *args, **kwargs):
-        
-#         posts_serializer = FileSerializer(data=request.data)
-#         if posts_serializer.is_valid():
-                     
-#             # The below removes the necessity to hard-code the path to the input file.
-#             uploaded = posts_serializer.save()  
-            
-#             process = Popen(['ocrmypdf', uploaded.file.path, 'output.pdf'])
-
-#             return Response(posts_serializer.data, status=status.HTTP_201_CREATED)
-
-#         else:
-#             print('error', posts_serializer.errors)
-#             return Response(posts_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
-#         return uploaded
-    
-#     def delete(self, request, uploaded, format=None):
-#         uploaded.posts_serializer.delete(save=True)
-#         return Response(status=status.HTTP_204_NO_CONTENT)
-
-
 # The view showing us the details of individual posts
 class PostDetail(generics.RetrieveAPIView):
 
@@ -105,16 +77,16 @@ class CreatePost(generics.CreateAPIView):
 
 
 class AdminPostDetail(generics.RetrieveAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = Post.objects.all()
     serializer_class = FileSerializer
 
 class EditPost(generics.UpdateAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     serializer_class = FileSerializer
     queryset = Post.objects.all()
 
 class DeletePost(generics.RetrieveDestroyAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     serializer_class = FileSerializer
     queryset = Post.objects.all()
