@@ -1,32 +1,28 @@
 [tool.poetry]
-name = "django-ocr-backend"
+name = "django_ocr_backend"
 version = "0.1.0"
-description = "The Django back end to my OCR project"
-authors = ["Joseph Cardenas <josephvcardenas@gmail.com>"]
+description = "The backend of my OCR project."
+authors = ["JosephVC <josephvcardenas@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-djangorestframework = "^3.12.1"
-django-storages = "^1.10.1"
+Django = "^3.1.5"
+djangorestframework = "^3.12.2"
+django-storages = "^1.11.1"
 django-heroku = "^0.3.1"
-django-cors-headers = "^3.5.0"
+django-cors-headers = "^3.6.0"
 python-dotenv = "^0.15.0"
 gunicorn = "^20.0.4"
 whitenoise = "^5.2.0"
-pytesseract = "^0.3.6"
-ocrmypdf = "^11.3.2"
+pytesseract = "^0.3.7"
+ocrmypdf = "^11.5.0"
 ghostscript = "^0.6"
-boto3 = "^1.16.10"
+boto3 = "^1.16.56"
 djangorestframework-simplejwt = "^4.6.0"
-
-Django = "^3.1.5"
-django-rest-framework-social-oauth2 = "^1.1.0"
-
-djangorestframework_simplejwt = "^4.6.0"
 
 [tool.poetry.dev-dependencies]
 
 [build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
