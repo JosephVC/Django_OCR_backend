@@ -8,7 +8,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     #OAuth
-    path('auth/', include('rest_framework_social_oauth2.urls')), 
+    path('auth/', include('drf_social_oauth2.urls')), 
     # Project URLs
     path('admin/', admin.site.urls),
     # path('', include('ocr.urls', namespace='ocr')),

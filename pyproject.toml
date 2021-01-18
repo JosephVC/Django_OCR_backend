@@ -20,6 +20,7 @@ ocrmypdf = "^11.5.0"
 ghostscript = "^0.6"
 boto3 = "^1.16.56"
 djangorestframework-simplejwt = "^4.6.0"
+drf-social-oauth2 = "^1.0.8"
 
 [tool.poetry.dev-dependencies]
 
