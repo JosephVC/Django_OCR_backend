@@ -36,12 +36,13 @@ SECRET_KEY = os.getenv('DJANGO_REFERENCE_PROJ_SECRET_KEY', 'reference-project-se
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+# DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com']
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "https://ocr-app-frontend.herokuapp.com/"
 ]
 
 # CSRF_COOKIE_SECURE = True
