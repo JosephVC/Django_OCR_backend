@@ -85,7 +85,7 @@ INSTALLED_APPS = [
     # oauth2
     'oauth2_provider',
     'social_django',
-    'rest_framework_social_oauth2',
+    'drf_social_oauth2',
 
 ]
 
@@ -231,7 +231,7 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.twitter.TwitterOAuth',
 
     # django-rest-framework-social-oauth2
-    'rest_framework_social_oauth2.backends.DjangoOAuth2',
+    'drf_social_oauth2.backends.DjangoOAuth2',
 
     # Django
     'django.contrib.auth.backends.ModelBackend',
