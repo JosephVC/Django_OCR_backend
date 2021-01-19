@@ -11,7 +11,7 @@ urlpatterns = [
     path('auth/', include('drf_social_oauth2.urls')), 
     # Project URLs
     path('admin/', admin.site.urls),
-    # path('', include('ocr.urls', namespace='ocr')),
+    path('', include('ocr.urls', namespace='ocr')),
     # User Management
     path('api/user/', include('users.urls', namespace='users')),
     # OCR API Application
