@@ -42,7 +42,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com']
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "https://*.herokuapp.com"
+    "https://ocr-app-frontend.herokuapp.com"
 ]
 
 # CSRF_COOKIE_SECURE = True
