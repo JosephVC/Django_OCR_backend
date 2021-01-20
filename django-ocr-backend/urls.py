@@ -6,6 +6,9 @@ from rest_framework.documentation import include_docs_urls
 from django.conf import settings
 from django.conf.urls.static import static
 
+admin.site.header_title = 'OCR App Administration'
+admin.site.site_title = 'OCR App Administration'
+
 urlpatterns = [
     #OAuth
     path('auth/', include('drf_social_oauth2.urls', namespace='drf')), 
