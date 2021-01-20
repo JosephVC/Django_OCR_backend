@@ -10,7 +10,8 @@ urlpatterns = [
     #OAuth
     path('auth/', include('drf_social_oauth2.urls', namespace='drf')), 
     # Project URLs
-    path('admin/', admin.site.urls),
+    # For security purposes, the stock '/admin/' url has been changed
+    path('cynosure/', admin.site.urls),
     path('', include('ocr.urls', namespace='ocr')),
     # User Management
     path('api/user/', include('users.urls', namespace='users')),
