@@ -12,14 +12,16 @@ admin.site.site_title = 'OCR App Administration'
 urlpatterns = [
     #OAuth
     path('auth/', include('drf_social_oauth2.urls', namespace='drf')), 
+    # OCR API Application
+    path('api/', include('ocr.urls', namespace='ocr_api')),
     # Project URLs
     # For security purposes, the stock '/admin/' url has been changed
     path('hotdog-factory/', admin.site.urls),
     path('', include('ocr.urls', namespace='ocr')),
+    
     # User Management
     path('api/user/', include('users.urls', namespace='users')),
-    # OCR API Application
-    path('api/', include('ocr.urls', namespace='ocr_api')),
+    
     
 ]
 
