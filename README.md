@@ -6,7 +6,11 @@ The DRF back end to my OCR project, the front end being done in React.
 
 More specifically, the front end will initially be a form taking a title, description, and a pdf file. This will then be submitted to the back end to be OCR'd by an external library, OCRmyPDF.
 
-  
+## Security TODOs
+There needs to be a way to secure the admin page, which I've started on with the help of [django-admin-honeypot](https://github.com/dmpayton/django-admin-honeypot).  There are a few things I need to tinker with, but it generally works.  Also, I need to ensure the security of the upload form on the front end.  
+
+Other TODOs are listed in the Issues page. 
+
 
 ## Follow the Tutorial
 
