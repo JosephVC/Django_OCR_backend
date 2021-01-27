@@ -16,9 +16,9 @@ import django_heroku
 # import python-dotenv to handle our environment variables
 from datetime import timedelta
 
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
 import os
 
@@ -41,9 +41,13 @@ DEBUG = False
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com']
 
 CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8000",
     "http://localhost:3000",
     "https://ocr-app-frontend.herokuapp.com"
 ]
+
+ADMINS = [ ('Joseph', 'josephvcardenas@gmail.com') ]
+ADMIN_HONEYPOT_EMAIL_ADMINS = True
 
 # CSRF_COOKIE_SECURE = True
 # SECURE_REFERRER_POLICY = 'origin'
@@ -52,8 +56,6 @@ CORS_ALLOWED_ORIGINS = [
 
 # SESSION_COOKIE_DOMAIN = 'localhost'
 
-# # needed by django-allauth
-# SITE_ID = 1
 
 # Application definition
 
@@ -88,6 +90,8 @@ INSTALLED_APPS = [
     'social_django',
     'drf_social_oauth2',
 
+    # honeypot /admin/ page to check for unauthorized access
+    'admin_honeypot',
 ]
 
 REST_FRAMEWORK = {
@@ -205,9 +209,6 @@ AWS_S3_OBJECT_PARAMETERS = {
 }
 AWS_LOCATION = 'static'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'mysite/static'),
-]
 
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
@@ -250,3 +251,24 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
 ]
 
 SOCIAL_AUTH_USER_FIELDS = ['email',  'username', 'first_name', 'password']
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'WARNING',
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+            'propagate': False,
+        },
+    },
+}
