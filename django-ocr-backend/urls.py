@@ -17,6 +17,8 @@ urlpatterns = [
     # Project URLs
     # For security purposes, the stock '/admin/' url has been changed
     path('hotdog-factory/', admin.site.urls),
+    # For additional security, standard '/admin/' changed to honeypot
+    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
     path('', include('ocr.urls', namespace='ocr')),
     
     # User Management
