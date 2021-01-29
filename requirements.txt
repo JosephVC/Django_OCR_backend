@@ -74,6 +74,9 @@ defusedxml==0.7.0rc2; python_version >= "3.0" and python_full_version < "3.0.0" 
 dj-database-url==0.5.0 \
     --hash=sha256:4aeaeb1f573c74835b0686a2b46b85990571159ffc21aa57ecd4d1e1cb334163 \
     --hash=sha256:851785365761ebe4994a921b433062309eb882fedd318e1b0fcecc607ed02da9
+django-admin-honeypot==1.1.0 \
+    --hash=sha256:e18a52832b82740917737873c6f34117d15631565e9e4b7dbb9df48a29250796 \
+    --hash=sha256:88e72753f5cbda88d909292d9f3fe7741fb74a8afad083f96e86114238f9b364
 django-cors-headers==3.6.0; python_version >= "3.6" \
     --hash=sha256:5665fc1b1aabf1b678885cf6f8f8bd7da36ef0a978375e767d491b48d3055d8f \
     --hash=sha256:ba898dd478cd4be3a38ebc3d8729fa4d044679f8c91b2684edee41129d7e968a
