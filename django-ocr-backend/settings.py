@@ -43,7 +43,8 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com']
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",
     "http://localhost:3000",
-    "https://ocr-app-frontend.herokuapp.com"
+    "https://ocr-app-frontend.herokuapp.com",
+    "https://django-ocr-backend.herokuapp.com"
 ]
 
 ADMINS = [ ('Joseph', 'josephvcardenas@gmail.com') ]
