@@ -16,9 +16,9 @@ import django_heroku
 # import python-dotenv to handle our environment variables
 from datetime import timedelta
 
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 
-# load_dotenv()
+load_dotenv()
 
 import os
 
@@ -32,7 +32,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # For this project, I decided to make my secret keys environment variables
 # on my local machine, and configuration variables within Heroku.
-SECRET_KEY = os.getenv('DJANGO_REFERENCE_PROJ_SECRET_KEY', 'reference-project-secret-key')
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -52,7 +52,7 @@ ADMIN_HONEYPOT_EMAIL_ADMINS = True
 
 # CSRF_COOKIE_SECURE = True
 # SECURE_REFERRER_POLICY = 'origin'
-# SECURE_SSL_REDIRECT = False
+# SECURE_SSL_REDIRECT = True
 # SESSION_COOKIE_SECURE = True
 
 # SESSION_COOKIE_DOMAIN = 'localhost'
