@@ -12,7 +12,6 @@ djangorestframework = "^3.12.2"
 django-storages = "^1.11.1"
 django-heroku = "^0.3.1"
 django-cors-headers = "^3.6.0"
-python-dotenv = "^0.15.0"
 gunicorn = "^20.0.4"
 whitenoise = "^5.2.0"
 pytesseract = "^0.3.7"
@@ -22,6 +21,7 @@ boto3 = "^1.16.56"
 djangorestframework-simplejwt = "^4.6.0"
 drf-social-oauth2 = "^1.0.8"
 django-admin-honeypot = "^1.1.0"
+python-dotenv = "^0.15.0"
 
 [tool.poetry.dev-dependencies]
 
