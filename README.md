@@ -32,7 +32,7 @@ We'll need to clone the [front end repo](https://github.com/JosephVC/React_OCR_f
 Make sure `UploadForm.js` points to `localhost:8000` rather than the Heroku-hosted backend (this is only if we want to keep both front and back ends local). Do the same with `FileList.js`.  
 
 ### Prepare the Back End
-**If you're using Linux**, per [this post](https://stackoverflow.com/questions/57416061/django-heroku-modulenotfounderror-no-module-named-django-heroku) you ought to ensure you have **psycopg2** installed properly or the django-heroku module may not load properly.  You may also need to run `sudo apt-get install liblept5`.
+**If you're using Linux**, per [this post](https://stackoverflow.com/questions/57416061/django-heroku-modulenotfounderror-no-module-named-django-heroku) you ought to ensure you have `psycopg2` installed properly or the django-heroku module may not load properly.  You may also need to run `sudo apt-get install liblept5` to take care of a particular dependency regarding `ocrmypdf`.
 
 Ensure your `ALLOWED_HOSTS` settings allow `localhost` in addition to `.herokuapp.com`.  Also make sure to set `DEBUG` to `True` as you are not running the app in production. 
 
