@@ -17,10 +17,14 @@ import django_heroku
 from datetime import timedelta
 
 from dotenv import load_dotenv
-
 load_dotenv()
-
 import os
+
+
+# reading .env file
+
+# False if not in os.environ
+DEBUG = os.getenv('DEBUG')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,13 +34,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-# For this project, I decided to make my secret keys environment variables
-# on my local machine, and configuration variables within Heroku.
+# Raises django's ImproperlyConfigured exception if SECRET_KEY not in os.environ
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
-
-# SECURITY WARNING: don't run with debug turned on in production!
-
-DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com']
 
