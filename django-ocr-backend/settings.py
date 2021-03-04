@@ -15,16 +15,14 @@ import django_heroku
 
 # import python-dotenv to handle our environment variables
 from datetime import timedelta
-
-from dotenv import load_dotenv
-load_dotenv()
+from decouple import config, Csv
 import os
 
 
 # reading .env file
 
 # False if not in os.environ
-DEBUG = os.getenv('DEBUG')
+DEBUG = config('DEBUG')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -35,9 +33,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # Raises django's ImproperlyConfigured exception if SECRET_KEY not in os.environ
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+SECRET_KEY = config('DJANGO_SECRET_KEY')
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",
