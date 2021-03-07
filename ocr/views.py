@@ -6,7 +6,7 @@ from django.conf import settings
 import json
 import os
 from rest_framework import filters, generics, status, viewsets
-from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.parsers import MultiPartParser, FormParser, FileUploadParser
 from rest_framework.permissions import ( SAFE_METHODS, IsAuthenticated, 
     IsAuthenticatedOrReadOnly, BasePermission, IsAdminUser, 
     DjangoModelPermissions ) 
@@ -65,7 +65,7 @@ class CreatePost(generics.CreateAPIView):
             # The below removes the necessity to hard-code the path to the input file.
             uploaded = posts_serializer.save()  
             
-            process = Popen(['ocrmypdf', uploaded.file.path, 'output.pdf'])
+            process = Popen(['ocrmypdf', uploaded, 'output.pdf'])
 
             return Response(posts_serializer.data, status=status.HTTP_201_CREATED)
 
