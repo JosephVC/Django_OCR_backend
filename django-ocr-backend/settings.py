@@ -199,14 +199,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # Like for my SECRET_KEY, I created environment variables for AWS keys
 # and created config vars for these values in Heroku.
 
-AWS_ACCESS_KEY_ID = 'AKIAWOLDEEOZJHGTUKPW'
-# AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+# AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 
-AWS_SECRET_ACCESS_KEY = 'jnPgBCyQTbS0DrgbeNi+w3ZhOGcmpAkvrx+rJcWs'
-# AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+# AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 
 
-AWS_STORAGE_BUCKET_NAME = 'ocr-backend-bucket3'
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
 
 # AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 # AWS_S3_OBJECT_PARAMETERS = {
