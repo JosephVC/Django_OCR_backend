@@ -15,14 +15,14 @@ import django_heroku
 
 # import python-dotenv to handle our environment variables
 from datetime import timedelta
-from decouple import config, Csv
+
+from dotenv import load_dotenv
+load_dotenv()  # take environment variables from .env.import os
+
 import os
 
-
-# reading .env file
-
 # False if not in os.environ
-DEBUG = config('DEBUG')
+DEBUG = os.getenv('DEBUG')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -33,9 +33,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # Raises django's ImproperlyConfigured exception if SECRET_KEY not in os.environ
-SECRET_KEY = config('DJANGO_SECRET_KEY')
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS')
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",
@@ -199,14 +199,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # Like for my SECRET_KEY, I created environment variables for AWS keys
 # and created config vars for these values in Heroku.
 
-AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
 # AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 
-AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 # AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 
 
-AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
 
 # AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 # AWS_S3_OBJECT_PARAMETERS = {

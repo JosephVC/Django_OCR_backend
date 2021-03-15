@@ -22,7 +22,6 @@ drf-social-oauth2 = "^1.0.8"
 django-admin-honeypot = "^1.1.0"
 python-dotenv = "^0.15.0"
 psycopg2 = "^2.8.6"
-python-decouple = "^3.4"
 boto3 = "^1.17.22"
 
 [tool.poetry.dev-dependencies]
