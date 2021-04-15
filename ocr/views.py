@@ -13,7 +13,7 @@ from rest_framework.permissions import ( SAFE_METHODS, IsAuthenticated,
 from rest_framework.response import Response
 
 #import needed for working with files
-from subprocess import Popen, PIPE, STDOUT
+from subprocess import Popen
 
 from urllib.parse import urlencode
 
@@ -64,7 +64,10 @@ class CreatePost(generics.CreateAPIView):
                      
             # The below removes the necessity to hard-code the path to the input file.
             uploaded = posts_serializer.save()  
-            
+
+            # OCR component
+            ocr_pdf = Popen(['ocrmypdf', uploaded.file.path, 'output.pdf'])
+
             return Response(posts_serializer.data, status=status.HTTP_201_CREATED)
 
         else:
