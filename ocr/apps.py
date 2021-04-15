@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class OcrConfig(AppConfig):
-    name = 'Django_OCR_backend.ocr'
+    name = 'ocr'
     verbose_name = 'ocr'
