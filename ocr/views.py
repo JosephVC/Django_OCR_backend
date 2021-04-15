@@ -65,8 +65,6 @@ class CreatePost(generics.CreateAPIView):
             # The below removes the necessity to hard-code the path to the input file.
             uploaded = posts_serializer.save()  
             
-            process = Popen(['ocrmypdf', uploaded, 'output.pdf'])
-
             return Response(posts_serializer.data, status=status.HTTP_201_CREATED)
 
         else:
